@@ -1,0 +1,2541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soravance-Home</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {},
+          screens: {
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1370px",
+            "2xl": "1536px",
+          },
+        },
+      };
+    </script>
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Playfair Display font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white text-white overflow-x-hidden w-full">
+    <!-- HERO + FOUNDING WRAPPER -->
+    <div class="relative w-full overflow-hidden">
+      <!-- Background Video (shared by both sections) -->
+      <div class="absolute top-0 left-0 w-full h-full -z-10">
+        <video
+          id="parallaxVideo"
+          class="w-full h-full object-cover"
+          src="assets/home-bg-white.mp4"
+          autoplay
+          loop
+          muted
+          playsinline
+        ></video>
+      </div>
+
+      <!-- HERO SECTION (Header + Section) -->
+      <div
+        class="relative min-h-screen relative flex flex-col gap-10 items-center w-full z-10"
+      >
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-white/10 pointer-events-none z-0"></div>
+
+        <!-- Header -->
+        <header
+          id="unique-main-header"
+          class="fixed inset-x-0 top-0 z-[100] transition-colors duration-300 bg-transparent py-2 px-5"
+        >
+          <!-- Desktop Header -->
+          <div class="hidden lg:flex items-center w-full">
+            <!-- Logo (left) -->
+            <div id="unique-logo-home" class="shrink-0">
+              <img
+                id="unique-header-logo"
+                class="h-10 xl:h-14 w-auto transition-all duration-300 ease-in-out"
+                src="assets/logo-gradient.png"
+                alt="Company Logo"
+              />
+            </div>
+            <div
+              id="unique-logo-dock"
+              class="hidden items-center shrink-0"
+            ></div>
+
+            <!-- Nav + CTA (pushed to the right) -->
+            <div class="flex items-center gap-6 xl:gap-8 ml-auto">
+              <nav
+                class="flex items-center gap-6 xl:gap-8 text-[#1C0738] text-sm xl:text-[0.95rem] font-medium"
+              >
+                <a href="#" class="hover:opacity-70 transition-opacity">About Us</a>
+                <a href="#" class="flex items-center gap-1 hover:opacity-70 transition-opacity">
+                  Our Services
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+                  </svg>
+                </a>
+                <a href="#" class="flex items-center gap-1 hover:opacity-70 transition-opacity">
+                  Sectors &amp; Corridors
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+                  </svg>
+                </a>
+                <a href="#" class="hover:opacity-70 transition-opacity">Insights</a>
+                <a href="#" class="hover:opacity-70 transition-opacity">Team</a>
+                <a href="#" class="hover:opacity-70 transition-opacity">Contact</a>
+              </nav>
+
+              <!-- CTA Button -->
+              <button
+                class="shrink-0 rounded-full px-5 py-1.5 xl:py-2 font-light cursor-pointer text-white text-sm bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+              >
+                Start a Strategy Sprint
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile Header -->
+          <div
+            class="lg:hidden flex justify-between items-center w-full py-4 px-5 pl-[max(20px,env(safe-area-inset-left))] pr-[max(20px,env(safe-area-inset-right))] box-border fixed top-0 inset-x-0 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 z-[120]"
+          >
+            <!-- Logo -->
+            <div class="shrink-0">
+              <img
+                id="unique-mobile-logo"
+                class="w-[150px] h-auto block transition-all duration-300 ease-in-out"
+                src="assets/logo-gradient.png"
+                alt="logo"
+              />
+            </div>
+
+            <!-- Hamburger Button -->
+            <button
+              id="menu-toggle"
+              class="group cursor-pointer shrink-0 flex items-center gap-3 text-[#1C0738]"
+              aria-expanded="false"
+              aria-controls="mobile-top-menu"
+              aria-label="Open menu"
+            >
+              <span class="relative block h-5 w-6" aria-hidden="true">
+                <span
+                  class="bar-1 absolute left-0 top-0 h-[2px] w-6 bg-[#1C0738] transition-transform duration-300"
+                ></span>
+                <span
+                  class="bar-2 absolute left-0 top-1/2 -translate-y-1/2 h-[2px] w-6 bg-[#1C0738] transition-all duration-300"
+                ></span>
+                <span
+                  class="bar-3 absolute left-0 bottom-0 h-[2px] w-6 bg-[#1C0738] transition-transform duration-300"
+                ></span>
+              </span>
+              <span id="menu-label" class="text-sm font-semibold tracking-wide"
+                >OPEN</span
+              >
+            </button>
+          </div>
+
+          <!-- Full-screen Mobile Menu -->
+          <div
+            id="mobile-top-menu"
+            class="fixed inset-x-0 top-0 h-svh z-40 bg-white -translate-y-full opacity-0 pointer-events-none transition-[transform,opacity] duration-200 ease-in-out"
+          >
+            <div
+              class="h-2 w-full bg-gradient-to-r from-[#1C0738] via-[#5C003A] to-[#B75636]"
+            ></div>
+
+            <div class="flex flex-col h-[calc(100svh-4px)]">
+              <nav class="flex-1 overflow-y-auto px-6 py-6 mt-20">
+                <ul class="space-y-4 text-[#1C0738]">
+                  <li>
+                    <a
+                      class="block font-medium hover:opacity-80 transition-opacity"
+                      href="#"
+                      >About Us</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="block font-medium hover:opacity-80 transition-opacity"
+                      href="#"
+                      >Our Services</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="block font-medium hover:opacity-80 transition-opacity"
+                      href="#"
+                      >Sectors & Corridors</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="block font-medium hover:opacity-80 transition-opacity"
+                      href="#"
+                      >Insights</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="block font-medium hover:opacity-80 transition-opacity"
+                      href="#"
+                      >Team</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="block font-medium hover:opacity-80 transition-opacity"
+                      href="#"
+                      >Contact</a
+                    >
+                  </li>
+                </ul>
+                <div class="mt-8">
+                  <button
+                    class="w-full rounded-full border border-[#1C0738] text-[#1C0738] px-5 py-3 font-medium"
+                  >
+                    Start a Strategy Sprint
+                  </button>
+                </div>
+              </nav>
+              <div class="px-6 pb-8 text-xs text-[#1C0738]/60">
+                © 2025 SoraVance LLP
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- Hero Content -->
+        <section
+          class="flex flex-col lg:gap-10 lg:flex-row lg:items-center w-full content-container pt-24 px-6 sm:px-8 lg:pb-16 lg:px-20 my-auto text-[#1C0738] lg:max-h-screen"
+        >
+          <!-- Left Text -->
+          <div class="flex flex-col gap-5 xl:gap-8 lg:w-1/2">
+            <div
+              class="text-4xl md:text-5xl lg:text-[45px] xl:text-[55px] flex flex-col leading-[3rem] md:leading-[4rem] lg:leading-[3.5rem] xl:leading-[4rem] font-semibold font-stretch-condensed"
+            >
+              <div>Designing the</div>
+              <div>Future of Strategy</div>
+              <div>Through People</div>
+
+              <!-- Uniting Insights <br />
+              and Leadership -->
+            </div>
+
+            <span
+              class="text-xl lg:text-2xl xl:text-3xl italic text-black tracking-wide"
+            >
+              Where leadership insight, talent intelligence, and business goals
+              converge.
+            </span>
+
+            <span
+              class="text-md lg:text-lg font-light mt-5 text-black text-opacity-70 capitalize"
+            >
+              Soravance is your trusted strategy partner for high-stakes market entry and business expansion – through market insight, milestone-aligned hiring, and culturally intelligent execution.
+            </span>
+            <!-- <span
+              class="text-md lg:text-lg font-light mt-5 text-black text-opacity-70 capitalize"
+            >
+              Shaping the Future of Consulting — Where Intelligence Replaces
+              Opinion.we Align Strategy, Leadership, and Culture So Decisions
+              Are Validated Before Execution. Rooted in Japanese Discipline,
+              Delivered Worldwide.
+            </span> -->
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-5">
+              <!-- Gradient Border Button -->
+              <button
+                class="rounded-full border border-[#1C0738] text-[#1C0738] px-5 py-2 xl:px-8 cursor-pointer hover:border-[#1C0738] hover:text-[#1C0738] transform transition-all duration-100 hover:-translate-y-1 text-sm xl:text-lg font-light"
+              >
+                Explore Our Approach
+              </button>
+
+              <!-- Gradient Filled Button -->
+              <button
+                class="rounded-full px-8 py-2 xl:px-10 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1 text-sm xl:text-lg font-light"
+              >
+                Talk to a Strategist
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Image -->
+          <div id="hero-anim-wrap" class="lg:w-1/2 flex justify-center relative">
+            <img
+              id="hero-gif"
+              src="assets/hero-animation.gif"
+              alt="hero-section-rings"
+              class="object-cover w-full h-[320px] sm:h-[420px] md:h-[520px] lg:h-[700px]"
+            />
+            <canvas
+              id="hero-gif-canvas"
+              class="hidden object-cover w-full h-[320px] sm:h-[420px] md:h-[520px] lg:h-[700px]"
+              aria-label="hero-section-rings"
+            ></canvas>
+          </div>
+        </section>
+      </div>
+
+      <!-- FOUNDING PHILOSOPHY -->
+      <!--<div
+        class="relative isolate w-full text-white overflow-hidden py-10 md:py-16 xl:py-32 px-6 sm:px-8 lg:px-20"
+      >
+        <!~~ Gradient Overlay ~~>
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-[#1C0738]/95 via-[#371449]/95 to-[#B75636]/95 pointer-events-none z-0"
+        ></div>
+
+        <section
+          class="relative z-10 content-container flex flex-col lg:flex-row w-full items-center justify-center gap-8 sm:gap-10 lg:gap-5"
+        >
+          <!~~ Infinity / Logo ~~>
+          <div
+            class="hidden lg:block lg:w-1/2 flex justify-center items-center"
+          >
+            <div class="founding-img">
+              <!~~ Keep desktop size; scale down smoothly on small screens ~~>
+              <img
+                src="assets/logo-icon.png"
+                class="w-auto max-w-full h-[220px] sm:h-[250px] xl:h-[350px] object-contain"
+                alt="SoraVance infinity"
+              />
+            </div>
+          </div>
+
+          <!~~ Text Content ~~>
+          <div
+            class="flex flex-col gap-6 lg:w-1/2 founding-text max-w-3xl lg:max-w-none"
+          >
+            <div
+              class="text-3xl md:text-5xl lg:text-[40px] xl:text-[55px] flex flex-col leading-[3rem] md:leading-[4rem] lg:leading-[3.5rem] xl:leading-[4rem] font-semibold font-stretch-condensed"
+            >
+              <div class="text-white">
+                Founding Philosophy - <br class="hidden sm:block" />
+                The SoraVance Flip
+              </div>
+            </div>
+
+            <div class="text-[22px] lg:text-3xl xl:text-[42px] italic">
+              Leadership as a Strategic Lever.
+            </div>
+
+            <!~~ Paragraphs ~~>
+            <div
+              class="text-md lg:text-lg font-light text-white/80 leading-relaxed capitalize"
+            >
+              Strategy Fails When Leadership Can’t Deliver. Talent Fails When It
+              Isn’t Anchored in Strategy. We Unite Both — Turning Leaders Into
+              Strategists Who Validate Plans, Anticipate Risk, and Deliver
+              Impact.
+            </div>
+
+            <div
+              class="text-sm xl:text-[15px] font-light text-white/80 leading-relaxed mt-6"
+            >
+              <span class="font-semibold italic">Building toward 2035:</span>
+              <span class="capitalize">
+                An Ecosystem where intelligence, culture and leadership
+                converge</span
+              >
+            </div>
+
+            <div>
+              <button
+                class="rounded-full bg-white text-[#1C0738] font-light px-5 py-2 xl:py-2.5 xl:px-8 cursor-pointer transform transition-all duration-100 hover:-translate-y-1 text-sm xl:text-base"
+                onclick="window.location.href='/about#origin'"
+              >
+                Why We Exist
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>-->
+    </div>
+
+    <!-- HEAR IT OUT FROM OUR FOUNDER -->
+    <!-- <div
+      class="w-full overflow-hidden text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36 bg-[#f0f0f0]"
+    >
+      <section class="flex flex-col gap-6 sm:gap-8 lg:gap-14 content-container">
+        
+        <h2
+          class="flex flex-col gap-5 heading-fade-purple font-semibold text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+        >
+          Hear It From Our Founder.
+          <div
+            class="text-sm md:text-base lg:text-lg font-light text-black/70 leading-relaxed capitalize w-3/4"
+          >
+            In 60 Seconds, Our Founder Explains How Leadership Conversations
+            Become Strategic Intelligence — Helping Businesses See Risk Early
+            and Move with Certainty Across Corridors.
+          </div>
+        </h2>
+
+        <div>
+          <div className="relative w-full aspect-video mx-auto h-full">
+            <iframe
+              class="mx-auto lg:w-4/5 xl:w-2/3 h-[400px] xl:h-[450px]"
+              src="https://www.youtube.com/embed/D0UnqGm_miA?si=o6HFbqWktuGf_NWv"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </div> -->
+
+    <!-- ROOTED IN JAPAN -->
+    <div
+      class="w-full overflow-hidden text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36"
+    >
+      <section
+        class="relative flex flex-col lg:flex-row w-full items-start justify-center gap-8 sm:gap-10 lg:gap-12 content-container"
+      >
+        <!-- Text Content -->
+        <div
+          class="flex flex-col gap-5 lg:w-1/2 rooted-in-japan-text h-full max-w-3xl lg:max-w-none mx-auto lg:mx-0 xl:py-10"
+        >
+          <div class="relative w-fit">
+            <div
+              class="font-semibold tracking-normal text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+            >
+              Rooted in Japan.<br />Built for the World.
+            </div>
+          </div>
+
+          <!-- Animated Paragraph -->
+          <div
+            class="text-black text-opacity-70 leading-relaxed text-md lg:text-lg font-light capitalize"
+          >
+            <!-- SoraVance was born out of deep experience in the India–Japan
+              business corridor. We apply the Japanese philosophy of trust,
+              precision, and long-term value to solve modern business problems.
+              Our consultants are trained in Japanese work principles, enabling us
+              to blend legacy wisdom with modern execution. -->
+
+            Rooted in Japanese Discipline and Clarity, We Blend Boardroom
+            Strategy with on-Ground Intelligence — Surfacing Signals on Markets,
+            Leadership Patterns, and Cultural Risk Before They Block Growth.
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div
+          class="lg:w-1/2 flex justify-center items-center rooted-in-japan-img"
+        >
+          <img
+            src="/assets/strategy-1.png"
+            alt="Rooted in Japan"
+            class="object-contain w-full max-w-[520px] h-[14rem] sm:h-[16rem] md:h-[20rem] lg:h-[22rem] xl:h-[24rem]"
+          />
+        </div>
+      </section>
+    </div>
+
+    <!-- FLIP CARD STYLES -->
+    <style>
+      .i-card { perspective: 1200px; }
+      .i-card-inner {
+        width: 100%; height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+      }
+      .i-card:hover .i-card-inner { transform: rotateY(180deg); }
+      .i-card-front, .i-card-back {
+        position: absolute; inset: 0;
+        border-radius: 1rem; overflow: hidden;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+      .i-card-back {
+        transform: rotateY(180deg);
+        background: #f5f4f2;
+        display: flex; flex-direction: column; justify-content: space-between;
+        padding: 1.25rem;
+        overflow: hidden;
+      }
+      .i-card-front .front-cb { height: 88px; overflow: hidden; }
+      .i-card-front .front-cb h3 { color: #1C0738; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      .i-card-front .front-cb p  { color: rgba(28,7,56,0.45); }
+    </style>
+
+    <!-- FROM INSIGHTS TO ACTION -->
+    <div id="insights-section" class="w-full overflow-hidden text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36 bg-white">
+      <section class="flex flex-col gap-8 md:gap-12 content-container">
+
+        <!-- Section Header -->
+        <div class="flex flex-col gap-3 max-w-2xl">
+          <span class="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-[#1C0738]/50">Recommended For You</span>
+          <h2 class="font-semibold text-3xl sm:text-4xl lg:text-5xl leading-tight text-[#1C0738]">Why We Exist</h2>
+          <p class="text-[#1C0738]/60 text-sm md:text-base lg:text-lg font-light leading-relaxed">
+            We bring strategic clarity and applied intelligence to every challenge, so leaders can move faster, act with confidence, and deliver change that sticks.
+          </p>
+        </div>
+
+        <!-- Staggered 4-column card grid — all cards same height, even cols offset down -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 items-start">
+
+          <!-- ── Column 1 — no offset ── -->
+          <div class="flex flex-col gap-4 lg:gap-5 ins-col-top">
+
+            <!-- Card 1 — AI -->
+            <div class="i-card relative h-[300px]">
+              <div class="i-card-inner">
+                <div class="i-card-front">
+                  <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" alt="AI" class="w-full h-full object-cover" />
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-block bg-black/40 backdrop-blur-md text-white text-[10px] font-medium tracking-widest uppercase px-3 py-1 rounded-sm">First Market Entry</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 z-10 bg-white/80 backdrop-blur-md rounded-xl p-3.5 front-cb">
+                    <!-- <p class="text-[10px] font-medium tracking-widest uppercase text-[#1C0738]/40 mb-1">Article &nbsp;&nbsp; September 12, 2025</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">How do we help you enter a market you don't fully understand?</h3>
+                  </div>
+                </div>
+                <div class="i-card-back">
+                  <div class="flex flex-col gap-2">
+                    <!-- <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]">Article &nbsp;&nbsp; September 12, 2025</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">How do we help you enter a market you don't fully understand?</h3>
+                    <p class="text-[#1C0738]/60 text-xs font-light leading-relaxed">When you enter a new market, it’s easy to assume what worked before will work again. Often, leadership readiness isn’t checked early enough, and decisions are made with limited local insight. That’s where things start to wobble.</p>
+                  </div>
+                  <button class="mt-4 self-start rounded-full px-5 py-2.5 bg-[#a8e06e] text-[#1C0738] font-semibold text-xs tracking-widest uppercase flex items-center gap-2">
+                    OUR APPROACH <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 — International Business -->
+            <div class="i-card relative h-[300px]">
+              <div class="i-card-inner">
+                <div class="i-card-front">
+                  <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=600&q=80" alt="International Business" class="w-full h-full object-cover" />
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-block bg-black/40 backdrop-blur-md text-white text-[10px] font-medium tracking-widest uppercase px-3 py-1 rounded-sm">First Senior Country Hire</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 z-10 bg-white/80 backdrop-blur-md rounded-xl p-3.5 front-cb">
+                    <!-- <p class="text-[10px] font-medium tracking-widest uppercase text-[#1C0738]/40 mb-1">Update &nbsp;&nbsp; March 17, 2026</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">How do we help you hire the right leader for this stage – not the last one?</h3>
+                  </div>
+                </div>
+                <div class="i-card-back">
+                  <div class="flex flex-col gap-2">
+                    <!-- <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]">Update &nbsp;&nbsp; March 17, 2026</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">How do we help you hire the right leader for this stage – not the last one?</h3>
+                    <p class="text-[#1C0738]/60 text-xs font-light leading-relaxed">Your first senior hire sets the tone for everything that follows. If the role isn’t clearly defined, you risk hiring the wrong person—not because they’re bad, but because the role itself wasn’t right.</p>
+                  </div>
+                  <button class="mt-4 self-start rounded-full px-5 py-2.5 bg-[#a8e06e] text-[#1C0738] font-semibold text-xs tracking-widest uppercase flex items-center gap-2">
+                    OUR APPROACH <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── Column 2 — offset DOWN ── -->
+          <div class="flex flex-col gap-4 lg:gap-5 sm:mt-14 ins-col-bot">
+
+            <!-- Card 2 — M&A -->
+            <div class="i-card relative h-[300px]">
+              <div class="i-card-inner">
+                <div class="i-card-front">
+                  <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80" alt="M&A" class="w-full h-full object-cover" />
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-block bg-black/40 backdrop-blur-md text-white text-[10px] font-medium tracking-widest uppercase px-3 py-1 rounded-sm">Post-Funding Scale</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 z-10 bg-white/80 backdrop-blur-md rounded-xl p-3.5 front-cb">
+                    <!-- <p class="text-[10px] font-medium tracking-widest uppercase text-[#1C0738]/40 mb-1">Article &nbsp;&nbsp; July 10, 2025</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">How do we help you build a leadership team that grows with your business?</h3>
+                  </div>
+                </div>
+                <div class="i-card-back">
+                  <div class="flex flex-col gap-2">
+                    <!-- <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]">Article &nbsp;&nbsp; July 10, 2025</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">How do we help you build a leadership team that grows with your business?</h3>
+                    <p class="text-[#1C0738]/60 text-xs font-light leading-relaxed">After funding, speed increases fast. Teams that worked well early on may struggle to keep up. Leaders need to grow faster than the company—or they become the bottleneck.</p>
+                  </div>
+                  <button class="mt-4 self-start rounded-full px-5 py-2.5 bg-[#a8e06e] text-[#1C0738] font-semibold text-xs tracking-widest uppercase flex items-center gap-2">
+                    OUR APPROACH <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 — Business Transformation -->
+            <div class="i-card relative h-[300px]">
+              <div class="i-card-inner">
+                <div class="i-card-front">
+                  <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=600&q=80" alt="Business Transformation" class="w-full h-full object-cover" />
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-block bg-black/40 backdrop-blur-md text-white text-[10px] font-medium tracking-widest uppercase px-3 py-1 rounded-sm">Leadership Replacement</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 z-10 bg-white/80 backdrop-blur-md rounded-xl p-3.5 front-cb">
+                    <!-- <p class="text-[10px] font-medium tracking-widest uppercase text-[#1C0738]/40 mb-1">Article &nbsp;&nbsp; April 27, 2026</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">How do we help you replace a key leader without losing momentum</h3>
+                  </div>
+                </div>
+                <div class="i-card-back">
+                  <div class="flex flex-col gap-2">
+                    <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]">Article &nbsp;&nbsp; April 27, 2026</p>
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">How do we help you replace a key leader without losing momentum</h3>
+                    <p class="text-[#1C0738]/60 text-xs font-light leading-relaxed">Replacing a senior leader is risky. Every delay can affect trust, delivery, and morale. The challenge is making the change without disrupting what’s already working.</p>
+                  </div>
+                  <button class="mt-4 self-start rounded-full px-5 py-2.5 bg-[#a8e06e] text-[#1C0738] font-semibold text-xs tracking-widest uppercase flex items-center gap-2">
+                    OUR APPROACH <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── Column 3 — no offset ── -->
+          <div class="flex flex-col gap-4 lg:gap-5 ins-col-top">
+
+            <!-- Card 3 — Consumer Products -->
+            <div class="i-card relative h-[300px]">
+              <div class="i-card-inner">
+                <div class="i-card-front">
+                  <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=600&q=80" alt="Consumer Products" class="w-full h-full object-cover" />
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-block bg-black/40 backdrop-blur-md text-white text-[10px] font-medium tracking-widest uppercase px-3 py-1 rounded-sm">Cross-Border Expansion</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 z-10 bg-white/80 backdrop-blur-md rounded-xl p-3.5 front-cb">
+                    <!-- <p class="text-[10px] font-medium tracking-widest uppercase text-[#1C0738]/40 mb-1">Article &nbsp;&nbsp; May 8, 2025</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">How do we help you bridge cultures, markets and and expectations across borders?</h3>
+                  </div>
+                </div>
+                <div class="i-card-back">
+                  <div class="flex flex-col gap-2">
+                    <!-- <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]">Article &nbsp;&nbsp; May 8, 2025</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">How do we help you bridge cultures, markets and and expectations across borders?</h3>
+                    <p class="text-[#1C0738]/60 text-xs font-light leading-relaxed">What works in one country may quietly fail in another. Differences in culture, ways of working, and expectations can create gaps that slow growth if they’re not handled early.</p>
+                  </div>
+                  <button class="mt-4 self-start rounded-full px-5 py-2.5 bg-[#a8e06e] text-[#1C0738] font-semibold text-xs tracking-widest uppercase flex items-center gap-2">
+                    OUR APPROACH <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7 — Talent Intelligence -->
+            <div class="i-card relative h-[300px]">
+              <div class="i-card-inner">
+                <div class="i-card-front">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Talent Intelligence" class="w-full h-full object-cover" />
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-block bg-black/40 backdrop-blur-md text-white text-[10px] font-medium tracking-widest uppercase px-3 py-1 rounded-sm">Sample Heading</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 z-10 bg-white/80 backdrop-blur-md rounded-xl p-3.5 front-cb">
+                    <!-- <p class="text-[10px] font-medium tracking-widest uppercase text-[#1C0738]/40 mb-1">Article &nbsp;&nbsp; May 8, 2026</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">Sample text to demonstrate the view of heading line of this card</h3>
+                  </div>
+                </div>
+                <div class="i-card-back">
+                  <div class="flex flex-col gap-2">
+                    <!-- <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]">Article &nbsp;&nbsp; May 8, 2026</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">Sample text to demonstrate the view of heading line</h3>
+                    <p class="text-[#1C0738]/60 text-xs font-light leading-relaxed">Sustainable growth demands a continuous intelligence layer that maps talent to strategic intent. Hiring the right person is only the beginning — alignment is the real challenge.</p>
+                  </div>
+                  <button class="mt-4 self-start rounded-full px-5 py-2.5 bg-[#a8e06e] text-[#1C0738] font-semibold text-xs tracking-widest uppercase flex items-center gap-2">
+                    OUR APPROACH <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── Column 4 — offset DOWN ── -->
+          <div class="flex flex-col gap-4 lg:gap-5 sm:mt-14 ins-col-bot">
+
+            <!-- Card 4 — Healthcare -->
+            <div class="i-card relative h-[300px]">
+              <div class="i-card-inner">
+                <div class="i-card-front">
+                  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Health Care" class="w-full h-full object-cover" />
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-block bg-black/40 backdrop-blur-md text-white text-[10px] font-medium tracking-widest uppercase px-3 py-1 rounded-sm">Sample Heading</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 z-10 bg-white/80 backdrop-blur-md rounded-xl p-3.5 front-cb">
+                    <!-- <p class="text-[10px] font-medium tracking-widest uppercase mb-1">Interview &nbsp;&nbsp; September 12, 2024</p> -->
+                    <h3 class="font-light text-base leading-snug">Sample text to demonstrate the view of heading line</h3>
+                  </div>
+                </div>
+                <div class="i-card-back">
+                  <div class="flex flex-col gap-2">
+                    <!-- <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]">Interview &nbsp;&nbsp; September 12, 2024</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">Sample text to demonstrate the view of heading line</h3>
+                    <p class="text-[#1C0738]/60 text-xs font-light leading-relaxed">Life sciences expansion across Asia requires more than regulatory compliance — leaders must hold multiple cultural frames simultaneously and build institutional trust.</p>
+                  </div>
+                  <button class="mt-4 self-start rounded-full px-5 py-2.5 bg-[#a8e06e] text-[#1C0738] font-semibold text-xs tracking-widest uppercase flex items-center gap-2">
+                    OUR APPROACH <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 8 — Cross-Border Growth -->
+            <div class="i-card relative h-[300px]">
+              <div class="i-card-inner">
+                <div class="i-card-front">
+                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" alt="Cross-Border Growth" class="w-full h-full object-cover" />
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="inline-block bg-black/40 backdrop-blur-md text-white text-[10px] font-medium tracking-widest uppercase px-3 py-1 rounded-sm">Sample Heading</span>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 z-10 bg-white/80 backdrop-blur-md rounded-xl p-3.5 front-cb">
+                    <!-- <p class="text-[10px] font-medium tracking-widest uppercase text-[#1C0738]/40 mb-1">Update &nbsp;&nbsp; January 13, 2026</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">Sample text to demonstrate the view of heading line</h3>
+                  </div>
+                </div>
+                <div class="i-card-back">
+                  <div class="flex flex-col gap-2">
+                    <!-- <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]">Update &nbsp;&nbsp; January 13, 2026</p> -->
+                    <h3 class="text-[#1C0738] font-light text-base leading-snug">Sample text to demonstrate the view of heading line</h3>
+                    <p class="text-[#1C0738]/60 text-xs font-light leading-relaxed">The old playbook for Japan–India expansion relied on patience and hierarchy. The new one requires speed, clarity, and cultural adaptability at every leadership tier.</p>
+                  </div>
+                  <button class="mt-4 self-start rounded-full px-5 py-2.5 bg-[#a8e06e] text-[#1C0738] font-semibold text-xs tracking-widest uppercase flex items-center gap-2">
+                    OUR APPROACH <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- CAPABILITIES / WHY SORAVANCE -->
+    <div id="capabilities-section" class="w-full">
+
+       <!-- Static intro band -->
+       <div class="w-full px-6 sm:px-8 lg:px-36 py-10 sm:py-14 lg:py-24 bg-[url('assets/bg-gradient.png')] bg-cover bg-center">
+        <div class="max-w-3xl flex flex-col gap-3 sm:gap-4">
+          <span class="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-white/40">Why SoraVance</span>
+          <h2 class="text-white font-semibold text-2xl sm:text-3xl lg:text-5xl leading-tight">Most firms hand you a plan.<br class="hidden sm:block"> We stay until it works.</h2>
+          <p class="text-white/55 text-sm font-light leading-relaxed">What sets us apart is not what we do — it is how we think before we act, what we bring beyond our advice, and how long we stay involved after the work begins.</p>
+        </div>
+      </div>
+
+      <!-- Full-screen carousel -->
+      <div id="cap-carousel" style="position:relative;width:100%;overflow:hidden;height:100svh;min-height:560px;">
+
+        <div id="cap-track" style="position:absolute;top:0;left:0;height:100%;display:flex;flex-wrap:nowrap;will-change:transform;transition:transform 0.8s cubic-bezier(0.4,0,0.2,1);">
+
+          <!-- Slide 1: Network & Access -->
+          <div class="cap-slide" style="width:100vw;min-width:100vw;height:100%;position:relative;flex-shrink:0;overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1600&q=80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,7,56,0.65) 0%,rgba(55,20,73,0.58) 33%,rgba(92,0,58,0.52) 66%,rgba(183,86,54,0.45) 100%);"></div>
+            <div style="position:relative;z-index:10;height:100%;display:flex;align-items:center;padding:0 1.5rem;">
+              <div class="cap-slide-content" style="width:100%;max-width:32rem;display:flex;flex-direction:column;gap:0.75rem;">
+                <p style="display:flex;align-items:center;gap:0.625rem;color:rgba(255,255,255,0.55);font-size:0.625rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;">
+                  <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.55);flex-shrink:0;"></span>
+                  01 / Network &amp; Access
+                </p>
+                <h3 style="color:#fff;font-weight:600;font-size:clamp(1.25rem,5vw,2.75rem);line-height:1.2;margin:0;">Access that goes beyond the advice</h3>
+                <p style="color:rgba(255,255,255,0.65);font-size:0.875rem;font-weight:300;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;">We connect you to a trusted global network of leaders, operators, and market specialists across India, Japan, ASEAN, the US, and Europe. When the situation shifts mid-execution, you have the right person a call away — not just a contact list.</p>
+                <div>
+                  <button style="border:1px solid rgba(255,255,255,0.8);color:#fff;font-size:0.7rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;padding:0.6rem 1.25rem;background:transparent;cursor:pointer;transition:background 0.3s,color 0.3s;" onmouseover="this.style.background='#fff';this.style.color='#1C0738';" onmouseout="this.style.background='transparent';this.style.color='#fff';">Explore Our Model</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Partnership -->
+          <div class="cap-slide" style="width:100vw;min-width:100vw;height:100%;position:relative;flex-shrink:0;overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,7,56,0.65) 0%,rgba(55,20,73,0.58) 33%,rgba(92,0,58,0.52) 66%,rgba(183,86,54,0.45) 100%);"></div>
+            <div style="position:relative;z-index:10;height:100%;display:flex;align-items:center;padding:0 1.5rem;">
+              <div class="cap-slide-content" style="width:100%;max-width:32rem;display:flex;flex-direction:column;gap:0.75rem;">
+                <p style="display:flex;align-items:center;gap:0.625rem;color:rgba(255,255,255,0.55);font-size:0.625rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;">
+                  <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.55);flex-shrink:0;"></span>
+                  02 / Partnership
+                </p>
+                <h3 style="color:#fff;font-weight:600;font-size:clamp(1.25rem,5vw,2.75rem);line-height:1.2;margin:0;">A partner in the room — not a firm at a distance</h3>
+                <p style="color:rgba(255,255,255,0.65);font-size:0.875rem;font-weight:300;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;">We work as an extension of your leadership team during the phases that define outcomes. We don't hand over a report and step back. We stay involved through execution, course-correction, and stabilisation — because our work is measured by what happens after delivery.</p>
+                <div>
+                  <button style="border:1px solid rgba(255,255,255,0.8);color:#fff;font-size:0.7rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;padding:0.6rem 1.25rem;background:transparent;cursor:pointer;transition:background 0.3s,color 0.3s;" onmouseover="this.style.background='#fff';this.style.color='#1C0738';" onmouseout="this.style.background='transparent';this.style.color='#fff';">Explore Our Model</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Market Intelligence -->
+          <div class="cap-slide" style="width:100vw;min-width:100vw;height:100%;position:relative;flex-shrink:0;overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,7,56,0.65) 0%,rgba(55,20,73,0.58) 33%,rgba(92,0,58,0.52) 66%,rgba(183,86,54,0.45) 100%);"></div>
+            <div style="position:relative;z-index:10;height:100%;display:flex;align-items:center;padding:0 1.5rem;">
+              <div class="cap-slide-content" style="width:100%;max-width:32rem;display:flex;flex-direction:column;gap:0.75rem;">
+                <p style="display:flex;align-items:center;gap:0.625rem;color:rgba(255,255,255,0.55);font-size:0.625rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;">
+                  <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.55);flex-shrink:0;"></span>
+                  03 / Market Intelligence
+                </p>
+                <h3 style="color:#fff;font-weight:600;font-size:clamp(1.25rem,5vw,2.75rem);line-height:1.2;margin:0;">Insight from the ground — not the desk</h3>
+                <p style="color:rgba(255,255,255,0.65);font-size:0.875rem;font-weight:300;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;">Every recommendation we make is grounded in real market experience. We have operated in the Japan–India corridor. We know what works in practice, not just on paper. You get counsel built on cases we have lived through — not research compiled after you called us.</p>
+                <div>
+                  <button style="border:1px solid rgba(255,255,255,0.8);color:#fff;font-size:0.7rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;padding:0.6rem 1.25rem;background:transparent;cursor:pointer;transition:background 0.3s,color 0.3s;" onmouseover="this.style.background='#fff';this.style.color='#1C0738';" onmouseout="this.style.background='transparent';this.style.color='#fff';">Explore Our Model</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Strategy Before Speed -->
+          <div class="cap-slide" style="width:100vw;min-width:100vw;height:100%;position:relative;flex-shrink:0;overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,7,56,0.65) 0%,rgba(55,20,73,0.58) 33%,rgba(92,0,58,0.52) 66%,rgba(183,86,54,0.45) 100%);"></div>
+            <div style="position:relative;z-index:10;height:100%;display:flex;align-items:center;padding:0 1.5rem;">
+              <div class="cap-slide-content" style="width:100%;max-width:32rem;display:flex;flex-direction:column;gap:0.75rem;">
+                <p style="display:flex;align-items:center;gap:0.625rem;color:rgba(255,255,255,0.55);font-size:0.625rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;">
+                  <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.55);flex-shrink:0;"></span>
+                  04 / Precision
+                </p>
+                <h3 style="color:#fff;font-weight:600;font-size:clamp(1.25rem,5vw,2.75rem);line-height:1.2;margin:0;">Strategy before speed</h3>
+                <p style="color:rgba(255,255,255,0.65);font-size:0.875rem;font-weight:300;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;">We don't begin a search until the brief is right. Every mandate is stress-tested against your actual business stage — not a generic template or last year's benchmark. The role we design is the one your business actually needs, not the one that was easiest to write.</p>
+                <div>
+                  <button style="border:1px solid rgba(255,255,255,0.8);color:#fff;font-size:0.7rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;padding:0.6rem 1.25rem;background:transparent;cursor:pointer;transition:background 0.3s,color 0.3s;" onmouseover="this.style.background='#fff';this.style.color='#1C0738';" onmouseout="this.style.background='transparent';this.style.color='#fff';">Explore Our Model</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Progress bar indicators -->
+        <div id="cap-dots" style="position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:0.375rem;z-index:20;">
+          <button class="cap-dot" data-idx="0" style="height:2px;border-radius:9999px;border:none;cursor:pointer;transition:width 0.5s,background 0.5s;width:2rem;background:rgba(255,255,255,1);padding:0;"></button>
+          <button class="cap-dot" data-idx="1" style="height:2px;border-radius:9999px;border:none;cursor:pointer;transition:width 0.5s,background 0.5s;width:1.25rem;background:rgba(255,255,255,0.35);padding:0;"></button>
+          <button class="cap-dot" data-idx="2" style="height:2px;border-radius:9999px;border:none;cursor:pointer;transition:width 0.5s,background 0.5s;width:1.25rem;background:rgba(255,255,255,0.35);padding:0;"></button>
+          <button class="cap-dot" data-idx="3" style="height:2px;border-radius:9999px;border:none;cursor:pointer;transition:width 0.5s,background 0.5s;width:1.25rem;background:rgba(255,255,255,0.35);padding:0;"></button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script>
+    (function () {
+      var track = document.getElementById('cap-track');
+      var dots  = document.querySelectorAll('#cap-dots .cap-dot');
+      var current = 0;
+      var total   = dots.length;
+      var timer;
+
+      function goTo(idx) {
+        current = ((idx % total) + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + 'vw)';
+        dots.forEach(function (d, i) {
+          d.style.width           = i === current ? '2.5rem' : '1.5rem';
+          d.style.backgroundColor = i === current ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.35)';
+        });
+        /* replay slide-content animation on each advance */
+        var contents = document.querySelectorAll('.cap-slide-content');
+        contents.forEach(function(el) { el.classList.remove('cap-anim-play'); });
+        var active = contents[current];
+        if (active) { void active.offsetWidth; active.classList.add('cap-anim-play'); }
+      }
+
+      function start() {
+        clearInterval(timer);
+        timer = setInterval(function () { goTo(current + 1); }, 5000);
+      }
+
+      function stop() { clearInterval(timer); }
+
+      dots.forEach(function (d, i) {
+        d.addEventListener('click', function () { stop(); goTo(i); start(); });
+      });
+
+      var el = document.getElementById('cap-carousel');
+      el.addEventListener('mouseenter', stop);
+      el.addEventListener('mouseleave', start);
+
+      /* touch / swipe */
+      var tx = 0;
+      el.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; stop(); }, { passive: true });
+      el.addEventListener('touchend',   function (e) {
+        var dx = e.changedTouches[0].clientX - tx;
+        if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1));
+        start();
+      }, { passive: true });
+
+      goTo(0);
+      start();
+    }());
+    </script>
+
+    <!-- CLIENT IMPACT SECTION -->
+    <style>
+      .ci-card { perspective: 1200px; }
+      .ci-card-inner {
+        width: 100%; height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+      }
+      .ci-card:hover .ci-card-inner { transform: rotateY(180deg); }
+      .ci-card-front, .ci-card-back {
+        position: absolute; inset: 0;
+        overflow: hidden;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+      .ci-card-back {
+        transform: rotateY(180deg);
+        background: #f5f4f2;
+        display: flex; flex-direction: column; justify-content: space-between;
+        padding: 1.25rem;
+        overflow: hidden;
+      }
+    </style>
+
+    <div id="client-impact-section" class="w-full bg-white px-6 sm:px-8 lg:px-36 py-16 md:py-24">
+
+      <!-- Section header -->
+      <div class="flex flex-col gap-3 max-w-2xl mb-10 md:mb-14">
+        <span class="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-[#1C0738]/50">Client Impact</span>
+        <h2 class="font-semibold text-3xl sm:text-4xl lg:text-5xl leading-tight text-[#1C0738]">Beyond Strategy. Real Impact.</h2>
+        <p class="text-[#1C0738]/60 text-sm md:text-base font-light leading-relaxed">We translate insight into outcomes that matter — building leadership infrastructure, enabling market entry, and staying until the work delivers.</p>
+      </div>
+
+      <!-- Mosaic grid — 4 cols desktop, 2 cols tablet, 1 col mobile -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+
+        <!-- ── ROW 1 ── -->
+
+        <!-- Card 1 — spans 2 cols, taller -->
+        <div class="ci-card relative h-[300px] sm:h-[320px] sm:col-span-1 lg:col-span-2">
+          <div class="ci-card-inner">
+            <div class="ci-card-front">
+              <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=900&q=80" alt="" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-[#1C0738]/10"></div>
+              <div class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm rounded-xl p-3 min-w-[80px]">
+                <p class="text-[#1C0738] font-bold text-2xl leading-none">3x</p>
+                <p class="text-[#1C0738]/55 text-[9px] font-semibold tracking-wider uppercase leading-tight mt-1">Revenue<br>Growth</p>
+              </div>
+              <div class="absolute bottom-4 left-4 right-4 z-10 bg-white/85 backdrop-blur-md rounded-xl p-4">
+                <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]/50 mb-1.5">Client Impact</p>
+                <h3 class="text-[#1C0738] font-light text-base leading-snug line-clamp-2">Japan Market Entry: Zero to Profitable in 18 Months</h3>
+              </div>
+            </div>
+            <div class="ci-card-back">
+              <div class="flex flex-col gap-3">
+                <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]/50">Client Impact</p>
+                <h3 class="text-[#1C0738] font-light text-base leading-snug">Japan Market Entry: Zero to Profitable in 18 Months</h3>
+                <p class="text-[#1C0738]/60 text-xs font-light leading-relaxed">A mid-sized Indian FMCG brand entered Japan with no local presence. We designed their go-to-market, built the leadership team, and stayed through two operational pivots until the business reached sustained profitability.</p>
+              </div>
+              <button class="mt-4 self-start rounded-full px-5 py-2.5 bg-[#a8e06e] text-[#1C0738] font-semibold text-xs tracking-widest uppercase flex items-center gap-2">Learn More <span>→</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 — spans 2 cols, taller -->
+        <div class="ci-card relative h-[300px] sm:h-[320px] sm:col-span-1 lg:col-span-2">
+          <div class="ci-card-inner">
+            <div class="ci-card-front">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80" alt="" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-[#1C0738]/10"></div>
+              <div class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm rounded-xl p-3 min-w-[80px]">
+                <p class="text-[#1C0738] font-bold text-2xl leading-none">40%</p>
+                <p class="text-[#1C0738]/55 text-[9px] font-semibold tracking-wider uppercase leading-tight mt-1">Cost<br>Reduction</p>
+              </div>
+              <div class="absolute bottom-4 left-4 right-4 z-10 bg-white/85 backdrop-blur-md rounded-xl p-4">
+                <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]/50 mb-1.5">Client Impact</p>
+                <h3 class="text-[#1C0738] font-light text-base leading-snug line-clamp-2">Cross-Border M&amp;A Integration Across 3 Markets</h3>
+              </div>
+            </div>
+            <div class="ci-card-back">
+              <div class="flex flex-col gap-3">
+                <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]/50">Client Impact</p>
+                <h3 class="text-[#1C0738] font-light text-base leading-snug">Cross-Border M&amp;A Integration Across 3 Markets</h3>
+                <p class="text-[#1C0738]/60 text-xs font-light leading-relaxed">A Japanese conglomerate acquiring assets in India and Southeast Asia needed leadership continuity through transition. We designed the integration blueprint, placed interim executives, and stabilised operations within six months.</p>
+              </div>
+              <button class="mt-4 self-start rounded-full px-5 py-2.5 bg-[#a8e06e] text-[#1C0738] font-semibold text-xs tracking-widest uppercase flex items-center gap-2">Learn More <span>→</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── ROW 2 ── -->
+
+        <!-- Card 3 — 1 col -->
+        <div class="ci-card relative h-[270px]">
+          <div class="ci-card-inner">
+            <div class="ci-card-front">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-[#1C0738]/10"></div>
+              <div class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm rounded-xl p-3 min-w-[80px]">
+                <p class="text-[#1C0738] font-bold text-2xl leading-none">18<span class="text-base font-semibold"> Mo.</span></p>
+                <p class="text-[#1C0738]/55 text-[9px] font-semibold tracking-wider uppercase leading-tight mt-1">To<br>Profitability</p>
+              </div>
+              <div class="absolute bottom-4 left-4 right-4 z-10 bg-white/85 backdrop-blur-md rounded-xl p-4">
+                <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]/50 mb-1.5">Client Impact</p>
+                <h3 class="text-[#1C0738] font-light text-base leading-snug line-clamp-2">Talent Transformation for a Regional ASEAN Expansion</h3>
+              </div>
+            </div>
+            <div class="ci-card-back">
+              <div class="flex flex-col gap-3">
+                <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]/50">Client Impact</p>
+                <h3 class="text-[#1C0738] font-light text-base leading-snug">Talent Transformation for a Regional ASEAN Expansion</h3>
+                <p class="text-[#1C0738]/60 text-xs font-light leading-relaxed">A global professional services firm expanding across ASEAN lacked the regional leadership density to execute. We restructured their talent strategy, identified and placed country heads in four markets, and built the internal capability to sustain growth independently.</p>
+              </div>
+              <button class="mt-4 self-start rounded-full px-5 py-2.5 bg-[#a8e06e] text-[#1C0738] font-semibold text-xs tracking-widest uppercase flex items-center gap-2">Learn More <span>→</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 — 1 col -->
+        <div class="ci-card relative h-[270px]">
+          <div class="ci-card-inner">
+            <div class="ci-card-front">
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-[#1C0738]/10"></div>
+              <div class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm rounded-xl p-3 min-w-[80px]">
+                <p class="text-[#1C0738] font-bold text-2xl leading-none">5</p>
+                <p class="text-[#1C0738]/55 text-[9px] font-semibold tracking-wider uppercase leading-tight mt-1">Markets<br>Entered</p>
+              </div>
+              <div class="absolute bottom-4 left-4 right-4 z-10 bg-white/85 backdrop-blur-md rounded-xl p-4">
+                <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]/50 mb-1.5">Client Impact</p>
+                <h3 class="text-[#1C0738] font-light text-base leading-snug line-clamp-2">Scaling a SaaS Venture Across the India–ASEAN Corridor</h3>
+              </div>
+            </div>
+            <div class="ci-card-back">
+              <div class="flex flex-col gap-3">
+                <p class="text-[10px] font-semibold tracking-widest uppercase text-[#1C0738]/50">Client Impact</p>
+                <h3 class="text-[#1C0738] font-light text-base leading-snug">Scaling a SaaS Venture Across the India–ASEAN Corridor</h3>
+                <p class="text-[#1C0738]/60 text-xs font-light leading-relaxed">A US-based B2B SaaS company needed a growth pathway into South and Southeast Asia. We stress-tested their product-market fit, identified the right entry sequence, and helped place the founding regional team that took them live in five markets within 18 months.</p>
+              </div>
+              <button class="mt-4 self-start rounded-full px-5 py-2.5 bg-[#a8e06e] text-[#1C0738] font-semibold text-xs tracking-widest uppercase flex items-center gap-2">Learn More <span>→</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tile 5 — CTA, spans 2 cols -->
+        <div class="ci-tile-cta relative h-[270px] overflow-hidden sm:col-span-2 lg:col-span-2 bg-[url('assets/bg-gradient.png')] bg-cover bg-center flex flex-col justify-between p-8">
+          <div class="flex flex-col gap-3">
+            <span class="text-[10px] font-semibold tracking-[0.2em] uppercase text-white/50">Start a Conversation</span>
+            <p class="text-white font-semibold text-2xl sm:text-3xl leading-snug">Every engagement starts with the right brief.</p>
+          </div>
+          <div>
+            <a href="#" class="inline-flex items-center gap-2 rounded-full px-6 py-3 text-white font-semibold text-xs tracking-widest uppercase bg-gradient-to-br from-[#1C0738] via-[#5C003A] to-[#B75636] hover:opacity-90 transition-opacity duration-300">
+              Start a Strategy Sprint <span>→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- WE START WHERE MOST FIRMS STOP -->
+<!--    <div
+      class="w-full overflow-hidden text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36 bg-[#f0f0f0]"
+    >
+      <section
+        class="relative flex flex-col w-full items-center justify-center gap-8 sm:gap-10 lg:gap-12 content-container"
+      >
+        <!~~ Text Content ~~>
+        <div
+          class="flex flex-col gap-5 w-full justify-center max-w-3xl lg:max-w-none mx-auto lg:mx-0"
+        >
+          <div
+            class="heading-fade-purple w-full font-semibold tracking-normal text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+          >
+            We start where most firms stop — turning leadership conversations
+            into strategic foresight.
+          </div>
+        </div>
+
+        <!~~ Cards ~~>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-10 xl:p-16">
+
+          <!~~ Card - 1 ~~>
+          <div
+            class="most-firms-card border border-black flex flex-col py-8 px-5 gap-6 xl:gap-8 h-[20rem] md:h-full lg:h-[23.5rem]"
+          >
+            <!~~ Icon ~~>
+
+            <img src="/assets/most-firms-1.png" class="h-20 w-20" />
+
+            <!~~ Heading ~~>
+            <div
+              class="w-full font-semibold tracking-normal text-xl lg:text-2xl xl:text-3xl"
+            >
+              Strategic Thinking
+            </div>
+
+            <!~~ Text ~~>
+
+            <div
+              class="text-black text-opacity-70 leading-relaxed text-md md:text-sm lg:text-lg font-light"
+            >
+              Advisory first. We address the decisions that change the outcomes
+              and quantify risk before execution begins.
+            </div>
+          </div>
+
+          <!~~ Card - 2 ~~>
+          <div
+            class="most-firms-card border border-black flex flex-col py-8 px-5 gap-6 xl:gap-8 h-[20rem] md:h-full lg:h-[23.5rem]"
+          >
+            <!~~ Icon ~~>
+            <img src="/assets/most-firms-2.png" class="h-20 w-20" />
+
+            <!~~ Heading ~~>
+            <div
+              class="w-full font-semibold tracking-normal text-xl lg:text-2xl xl:text-3xl"
+            >
+              Market Clarity
+            </div>
+
+            <!~~ Text ~~>
+
+            <div
+              class="text-black text-opacity-70 leading-relaxed text-md md:text-sm lg:text-lg font-light"
+            >
+              We test assumptions with operators who’ve built in those markets,
+              delivering insights grounded in reality.
+            </div>
+          </div>
+
+          <!~~ Card - 3 ~~>
+          <div
+            class="most-firms-card border border-black flex flex-col py-8 px-5 gap-6 xl:gap-8 h-[20rem] md:h-full lg:h-[23.5rem]"
+          >
+            <!~~ Icon ~~>
+            <img src="/assets/most-firms-3.png" class="h-20 w-20" />
+
+            <!~~ Heading ~~>
+            <div
+              class="w-full font-semibold tracking-normal text-xl lg:text-2xl xl:text-3xl"
+            >
+              Founder-Led Insight
+            </div>
+
+            <!~~ Text ~~>
+
+            <div
+              class="text-black text-opacity-70 leading-relaxed text-md md:text-sm lg:text-lg font-light"
+            >
+              Every project receives senior attention and cross-corridor
+              perspective drawn from 15 years in Japan-India advisory.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>-->
+
+    <!-- WHAT WE DO -->
+
+<!--    <div class="flex flex-col">
+      <div
+        class="w-full overflow-hidden bg-white text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36"
+      >
+        <div class="flex flex-col gap-28">
+          <!~~ Heading Text~~>
+          <div class="flex flex-col gap-3">
+            <!~~ Main Heading ~~>
+            <div
+              class="heading-fade-purple font-semibold tracking-normal text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+            >
+              What We Do (
+              <span
+                class="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-wide"
+                >Consulting-first, execution-ready</span
+              >
+              )
+            </div>
+
+            <!~~ Sub Heading ~~>
+            <div class="lg:text-2xl text-black tracking-wide">
+              We Align Leadership And Structure To Strategy — So Every Move Is
+              Validated Before It's Made.
+            </div>
+          </div>
+
+            <!~~ Band - 1 ~~>
+            <section
+              class="relative flex flex-col lg:flex-row w-full items-start justify-center content-container gap-20"
+            >
+              <!~~ Image ~~>
+              <div class="w-full lg:w-1/2 flex items-center leadership-left">
+                <img
+                  src="/assets/strategy-1.png"
+                  alt=""
+                  class="object-contain min-w-full h-[14rem] sm:h-[16rem] md:h-[20rem] lg:h-[22rem] xl:h-[24rem]"
+                />
+              </div>
+              <!~~ Text Content ~~>
+              <div
+                class="flex flex-col gap-6 w-full lg:w-1/2 h-full max-w-3xl lg:max-w-none mx-auto lg:mx-0 xl:py-10"
+              >
+                <div class="leadership-right flex flex-col gap-6">
+                  <div class="relative w-fit">
+                    <div
+                      class="font-semibold tracking-normal text-3xl sm:text-4xl lg:text-[45px] xl:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+                    >
+                      Leadership Enablement
+                    </div>
+                  </div>
+
+                  <!~~ Animated Paragraph ~~>
+                  <div
+                    class="w-11/12 text-black text-opacity-70 leading-relaxed text-md lg:text-lg font-light capitalize"
+                  >
+                    We deliver leaders and specialists who convert strategy into
+                    execution — engaging candidates as strategists to validate
+                    direction before hire
+                  </div>
+                </div>
+                <!~~ Button ~~>
+                <button
+                  class="w-fit rounded-full px-8 py-2 xl:px-10 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1 text-md font-light"
+                >
+                  Start a Mandate
+                </button>
+              </div>
+            </section>
+       
+        </div>
+      </div>
+
+      <!~~ Band - 2 ~~>
+      <section
+        class="relative flex flex-col lg:flex-row w-full items-start justify-center content-container gap-20 py-10 md:py-20 px-6 sm:px-8 lg:px-36 bg-[#f0f0f0]"
+      >
+        <!~~ Text Content ~~>
+        <div
+          class="flex flex-col gap-6 w-full lg:w-1/2 h-full mx-auto lg:mx-0 xl:py-10"
+        >
+          <div class="business-left flex flex-col gap-6">
+            <div
+              class="text-[#1C0738] w-4/5 lg:w-full xl:w-4/5 font-semibold tracking-normal text-3xl sm:text-4xl lg:text-[45px] xl:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+            >
+              Business Advisory & Corridor Consulting
+            </div>
+
+            <!~~ Animated Paragraph ~~>
+            <div
+              class="w-11/12 text-black text-opacity-70 leading-relaxed text-md lg:text-lg font-light capitalize"
+            >
+              Market-Entry Design, Strategy Validation, and Cross-Border
+              Advisory Using First-Hand Leadership Intelligence to Reveal
+              Opportunities and Blind Spots.
+            </div>
+          </div>
+          <!~~ Button ~~>
+          <button
+            class="w-fit rounded-full px-8 py-2 xl:px-10 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1 text-md font-light"
+          >
+            Learn More
+          </button>
+        </div>
+
+        <!~~ Image ~~>
+        <div class="business-right lg:w-1/2 flex justify-end items-center">
+          <img
+            src="/assets/strategy-1.png"
+            alt=""
+            class="object-contain min-w-full h-[14rem] sm:h-[16rem] md:h-[20rem] lg:h-[22rem] xl:h-[24rem]"
+          />
+        </div>
+      </section>
+
+      <!~~ Band - 3 ~~>
+      <section
+        class="relative flex flex-col lg:flex-row w-full items-start justify-center content-container gap-20 py-10 md:py-20 px-6 sm:px-8 lg:px-36"
+      >
+        <!~~ Image ~~>
+        <div class="architecture-left lg:w-1/2 flex items-center">
+          <img
+            src="/assets/strategy-1.png"
+            alt=""
+            class="object-contain min-w-full h-[14rem] sm:h-[16rem] md:h-[20rem] lg:h-[22rem] xl:h-[24rem]"
+          />
+        </div>
+        <!~~ Text Content ~~>
+        <div
+          class="flex flex-col gap-6 lg:w-1/2 h-full max-w-3xl lg:max-w-none mx-auto lg:mx-0 xl:py-10"
+        >
+          <div class="architecture-right flex flex-col gap-6">
+            <div class="relative w-fit">
+              <div
+                class="text-[#1C0738] font-semibold tracking-normal text-3xl sm:text-4xl lg:text-[45px] xl:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+              >
+                Leadership Architecture & Alignment
+              </div>
+            </div>
+
+            <!~~ Animated Paragraph ~~>
+            <div
+              class="w-11/12 text-black text-opacity-70 leading-relaxed text-md lg:text-lg font-light capitalize"
+            >
+              We Design Leadership Structures and Teams That Evolve with
+              Milestones — Creating Clarity, Accountability, and Lower Re-Org
+              Risk.
+            </div>
+
+            <!~~ Button ~~>
+          </div>
+          <button
+            class="w-fit rounded-full px-8 py-2 xl:px-10 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1 text-md font-light"
+          >
+            Explore our Approach
+          </button>
+        </div>
+      </section>
+
+      <!~~ Band - 4 ~~>
+      <section
+        class="relative flex flex-col lg:flex-row w-full items-start justify-center content-container gap-20 py-10 md:py-20 px-6 sm:px-8 lg:px-36 bg-[#f0f0f0]"
+      >
+        <!~~ Text Content ~~>
+        <div
+          class="flex flex-col gap-6 lg:w-1/2 h-full mx-auto lg:mx-0 xl:py-10"
+        >
+          <div class="risk-left flex flex-col gap-6">
+            <div
+              class="text-[#1C0738] w-4/5 font-semibold tracking-normal text-3xl sm:text-4xl lg:text-[45px] xl:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+            >
+              Leadership Risk & Talent Validation
+            </div>
+
+            <!~~ Animated Paragraph ~~>
+            <div
+              class="w-11/12 text-black text-opacity-70 leading-relaxed text-md lg:text-lg font-light capitalize"
+            >
+              De-Risk Critical Decisions Via Candidate-Led Insights, Leadership
+              Assessments, and Cross-Corridor Due Diligence.
+            </div>
+
+            <!~~ Button ~~>
+          </div>
+          <button
+            class="w-fit rounded-full px-8 py-2 xl:px-10 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1 text-md font-light"
+          >
+            Explore our Approach
+          </button>
+        </div>
+
+        <!~~ Image ~~>
+        <div class="risk-right lg:w-1/2 flex justify-end items-center">
+          <img
+            src="/assets/strategy-1.png"
+            alt=""
+            class="object-contain min-w-full h-[14rem] sm:h-[16rem] md:h-[20rem] lg:h-[22rem] xl:h-[24rem]"
+          />
+        </div>
+      </section>
+    </div>-->
+
+    <!-- HOW WE WORK -->
+<!--    <div
+      class="w-full text-white overflow-hidden bg-gradient-to-br from-[#1C0738] via-[#371449] to-[#B75636] py-10 md:py-20 px-6 sm:px-8 lg:px-36"
+    >
+      <section
+        class="flex flex-col gap-14 lg:gap-10 md:py-10 content-container"
+      >
+        <!~~ headline ~~>
+        <h2
+          class="font-semibold text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+        >
+          How We Work - Assess. Align. Accelerate.
+        </h2>
+
+        <!~~ Images ~~>
+
+        <!~~ Text content columns ~~>
+
+        <div class="grid grid-cols-1 gap-14 lg:gap-0 lg:grid-cols-3">
+          <!~~ Assess ~~>
+
+          <div class="flex flex-col gap-2 lg:gap-10">
+            <!~~ Image ~~>
+            <div>
+              <img src="/assets/assess.png" alt="assess" class="w-full"/>
+            </div>
+
+            <!~~ Text ~~>
+            <div class="flex flex-col gap-4">
+              <div class="font-semibold text-4xl">Assess</div>
+  
+              <div class="xl:w-7/12 font-light">
+                Surface market and leadership signals that validate strategy and
+                quantify risk through corridor intelligence.
+              </div>
+            </div>
+
+          </div>
+          <!~~ Align ~~>
+           <div class="flex flex-col gap-2 lg:gap-10">
+            <!~~ Image ~~>
+            <div>
+              <img src="/assets/align.png" alt="align"/>
+            </div>
+
+            <!~~ Text ~~>
+            <div class="flex flex-col gap-4">
+             
+              <div class="font-semibold text-4xl">Align</div>
+  
+              <div class="xl:w-7/12 font-light">
+                Design structures and leaders matched to ambition and stage,
+                ensuring cultural fit and strategic clarity.
+              </div>
+            </div>
+           </div>
+          <!~~ Accelerate ~~>
+
+          <div class="flex flex-col gap-2 lg:gap-10">
+            <!~~ Image ~~>
+            <div>
+              <img src="/assets/accelerate.png" alt="accelerate"/>
+            </div>
+
+            <!~~ Text ~~>
+            <div class="flex flex-col gap-4">
+              <div class="font-semibold text-4xl">Accelerate</div>
+  
+              <div class="xl:w-7/12 font-light">
+                Execute faster through insight-led leadership moves that turn
+                strategy into measurable market impact.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>-->
+
+    <!-- HOW INSIGHT BECOMES IMPACT -->
+<!--    <div
+      class="w-full text-white overflow-hidden text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36 bg-[#f0f0f0]"
+    >
+      <section
+        class="flex flex-col gap-6 sm:gap-8 lg:gap-10 md:py-10 content-container"
+      >
+        <!~~ headline ~~>
+        <h2
+          class="flex flex-col gap-5 heading-fade-purple font-semibold text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+        >
+          How Insight Becomes Impact.
+          <div
+            class="text-sm md:text-base lg:text-lg font-light text-black/70 leading-relaxed capitalize w-3/4"
+          >
+            We Convert Leadership Experience and Corridor Data Into Strategy
+            Clarity. Every Engagement Begins with Insight — Signals from
+            Operators, Candidates, and Ecosystems — to Validate Assumptions,
+            Forecast Risk, and Drive Measurable Impact.
+          </div>
+        </h2>
+
+        <!~~ Image ~~>
+        <div class="w-full pt-10">
+          <img src="/assets/insight.png" class="" />
+        </div>
+      </section>
+    </div>-->
+
+    <!-- WHERE INSIGHT MEETS INDUSTRY DEPTH -->
+<!--    <div
+      class="w-full text-white overflow-hidden bg-white text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36"
+    >
+      <section
+        class="flex flex-col gap-6 sm:gap-8 lg:gap-10 md:py-10 content-container"
+      >
+        <!~~ headline ~~>
+        <h2
+          class="flex flex-col gap-5 heading-fade-purple font-semibold text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+        >
+          Where Insight Meets Industry Depth.
+          <div
+            class="text-sm md:text-base lg:text-lg font-light text-black/60 leading-relaxed capitalize w-3/4"
+          >
+            We focus on sectors where leadership alignment determines strategic
+            success — turning people decisions into market trajectory
+          </div>
+        </h2>
+
+        <!~~ cards grid ~~>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 lg:gap-10">
+          <!~~ Card 1 ~~>
+          <div
+            class="flex flex-col justify-evenly gap-5 bg-white border border-opacity-90 text-[#1C0738] p-5 thought-leadership-left hover:shadow-lg hover:bg-[#f0f0f0] hover:cursor-pointer"
+          >
+            <div>
+              <img src="/assets/icon.png" alt="icon" class="h-16" />
+            </div>
+            <div class="text-[#1C0738] text-xl xl:text-2xl font-normal">
+              Technology & Digital Transformation
+            </div>
+            <div class="font-light text-[#1C0738] text-sm xl:text-md">
+              A practical playbook that breaks down common market-entry mistakes
+              and the strategic fixes that actually work
+            </div>
+            <button
+              class="rounded-full w-full sm:w-fit px-8 py-2 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+            >
+              Read More
+            </button>
+          </div>
+
+          <!~~ Card 2 ~~>
+          <div
+            class="flex flex-col justify-evenly gap-5 bg-white border border-opacity-90 text-[#1C0738] p-5 thought-leadership-right hover:shadow-lg hover:bg-[#f0f0f0] hover:cursor-pointer"
+          >
+            <div>
+              <img src="/assets/icon2.png" alt="icon" class="h-16" />
+            </div>
+            <div class="text-[#1C0738] text-xl xl:text-2xl font-normal">
+              Life Sciences & Healthcare
+            </div>
+            <div class="font-light text-[#1C0738] text-sm xl:text-md">
+              A framework for hiring that ties talent investment to measurable
+              and commecialization milestones.
+            </div>
+            <button
+              class="rounded-full w-full sm:w-fit px-8 py-2 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+            >
+              Read More
+            </button>
+          </div>
+
+          <!~~ Card 3 ~~>
+          <div
+            class="flex flex-col justify-evenly gap-5 bg-white border border-opacity-90 text-[#1C0738] p-5 thought-leadership-left hover:shadow-lg hover:bg-[#f0f0f0] hover:cursor-pointer"
+          >
+            <div>
+              <img src="/assets/icon3.png" alt="icon" class="h-16" />
+            </div>
+            <div class="text-[#1C0738] text-xl xl:text-2xl font-normal">
+              Manufacturing & Mobility
+            </div>
+            <div class="font-light text-[#1C0738] text-sm xl:text-md">
+              Insights and case studies on building leadership teams that can
+              scale companies across regions.
+            </div>
+            <button
+              class="rounded-full w-full sm:w-fit px-8 py-2 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+            >
+              Read More
+            </button>
+          </div>
+
+          <!~~ Card 4 ~~>
+          <div
+            class="flex flex-col justify-evenly gap-5 bg-white border border-opacity-90 text-[#1C0738] p-5 thought-leadership-right hover:shadow-lg hover:bg-[#f0f0f0] hover:cursor-pointer"
+          >
+            <div>
+              <img src="/assets/icon.png" alt="icon" class="h-16" />
+            </div>
+            <div class="text-[#1C0738] text-xl xl:text-2xl font-normal">
+              Consulting | Private Equity | Venture Capital
+            </div>
+            <div class="font-light text-[#1C0738] text-sm xl:text-md">
+              A practical playbook that breaks down common market-entry mistakes
+              and the strategic fixes that actually work
+            </div>
+            <button
+              class="rounded-full w-full sm:w-fit px-8 py-2 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+            >
+              Read More
+            </button>
+          </div>
+        </div>
+        <div
+          class="text-sm md:text-base lg:text-lg font-light text-black/60 leading-relaxed"
+        >
+          We partner where technical depth meets strategic ambition.
+        </div>
+      </section>
+    </div>-->
+
+    <!-- WHO WE SERVE -->
+ <!--   <div
+      class="w-full text-white overflow-hidden text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36 bg-[#f0f0f0]"
+    >
+      <section class="flex flex-col gap-6 sm:gap-8 lg:gap-10 content-container">
+        <!~~ headline ~~>
+        <h2
+          class="flex flex-col gap-5 heading-fade-purple font-semibold text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+        >
+          Who We Serve
+          <div
+            class="text-sm md:text-base lg:text-lg font-light text-black/70 leading-relaxed w-3/4"
+          >
+            We partner where the stakes are highest - market entry,
+            transformation, or turnaround.
+          </div>
+        </h2>
+
+        <!~~ Image ~~>
+        <div class="w-full">
+          <img src="/assets/who-we-serve.png" alt="who-we-serve" />
+        </div>
+      </section>
+    </div>-->
+
+    <!-- CORRIDOR SIGNALS -->
+<!--    <div
+      class="w-full text-white overflow-hidden bg-white text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36"
+    >
+      <section
+        class="flex flex-col gap-6 sm:gap-8 lg:gap-10 md:py-10 content-container"
+      >
+        <!~~ headline ~~>
+        <h2
+          class="flex flex-col gap-5 heading-fade-purple font-semibold text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+        >
+          Corridor Signals / Market Intelligence Insights
+          <div
+            class="text-sm md:text-base lg:text-lg font-light text-black/70 leading-relaxed w-11/12"
+          >
+            Bite-size insights leaders use before they move. Every signal is
+            drawn from real conversations with candidates, founders, and
+            operators — turning market noise into foresight.
+          </div>
+        </h2>
+
+        <!~~ Card Grid ~~>
+        <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-8">
+          <!~~ Validate before you scale ~~>
+          <div
+            class="flex flex-col gap-4 border border-stone-400 h-[13.25rem] px-5 py-7"
+          >
+            <div class="text-[#1C0738] text-[27px] leading-8">
+              Validate before you scale
+            </div>
+
+            <div class="font-light text-[14.5px] text-black/70">
+              Candidate insights flagged channel gaps that saved a consumer firm
+              6 months of re-entry.
+            </div>
+          </div>
+
+          <!~~ Design the first 90 days ~~>
+          <div
+            class="flex flex-col gap-4 border border-stone-400 h-[13.25rem] px-5 py-7"
+          >
+            <div class="text-[#1C0738] text-[27px] leading-8">
+              Design the first 90 days
+            </div>
+
+            <div class="font-light text-[14.5px] text-black/70">
+              Leadership scorecards tied to regulatory milestones cut setup
+              delays by 30 %.
+            </div>
+          </div>
+
+          <!~~ Mind the culture delta  ~~>
+          <div
+            class="flex flex-col gap-4 border border-stone-400 h-[13.25rem] px-5 py-7"
+          >
+            <div class="text-[#1C0738] text-[27px] leading-8">
+              Mind the culture delta
+            </div>
+
+            <div class="font-light text-[14.5px] text-black/70">
+              Consensus models from Japan need explicit decision maps in India.
+            </div>
+          </div>
+
+          <!~~ Gate leadership hires ~~>
+          <div
+            class="flex flex-col gap-4 border border-stone-400 h-[13.25rem] px-5 py-7"
+          >
+            <div class="text-[#1C0738] text-[27px] leading-8">
+              Gate leadership hires
+            </div>
+
+            <div class="font-light text-[14.5px] text-black/70">
+              Onboard by milestone gates (revenue/pilots/MoUs) to protect P&L.
+            </div>
+          </div>
+
+          <!~~ Tenure trends ~~>
+          <div
+            class="flex flex-col gap-4 border border-stone-400 h-[13.25rem] px-5 py-7"
+          >
+            <div class="text-[#1C0738] text-[27px] leading-8">
+              Tenure trends
+            </div>
+
+            <div class="font-light text-[14.5px] text-black/70">
+              CXO average stay reduced to 3.1 yrs; succession must be modeled
+              earlier.
+            </div>
+          </div>
+          <!~~ Talent as signal  ~~>
+          <div
+            class="flex flex-col gap-4 border border-stone-400 h-[13.25rem] px-5 py-7"
+          >
+            <div class="text-[#1C0738] text-[27px] leading-8">
+              Talent as signal
+            </div>
+
+            <div class="font-light text-[14.5px] text-black/70">
+              Candidate pipeline volume drops 15 % three quarters before sector
+              slowdowns.
+            </div>
+          </div>
+          <!~~ Language ≠ Culture ~~>
+          <div
+            class="flex flex-col gap-4 border border-stone-400 h-[13.25rem] px-5 py-7"
+          >
+            <div class="text-[#1C0738] text-[27px] leading-8">
+              Language ≠ Culture
+            </div>
+
+            <div class="font-light text-[14.5px] text-black/70">
+              Fluent Japanese leaders still report integration lags without
+              cultural coaching.
+            </div>
+          </div>
+          <!~~ Failure pattern ~~>
+          <div
+            class="flex flex-col gap-4 border border-stone-400 h-[13.25rem] px-5 py-7"
+          >
+            <div class="text-[#1C0738] text-[27px] leading-8">
+              Failure pattern
+            </div>
+
+            <div class="font-light text-[14.5px] text-black/70">
+              72 % of market failures stem from first local leader mis-fit.
+            </div>
+          </div>
+        </div>
+
+        <!~~ CTA ~~>
+        <button
+          class="mt-3 rounded-full text-sm sm:text-base xl:text-md px-10 py-2 w-fit mx-auto cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+        >
+          See all insights
+        </button>
+      </section>
+    </div>-->
+
+    <!-- HIRING AS A STRATEGIC LEVER -->
+ <!--   <div
+      id="strategic-lever"
+      class="w-full text-white overflow-hidden lg:overflow-visible lg:pe-20 text-[#1C0738] bg-[#f0f0f0]"
+    >
+      <!~~ Stack on mobile, side-by-side on desktop; pin only on desktop via JS ~~>
+      <section
+        class="flex flex-col lg:flex-row gap-6 md:gap-8 mb-10 content-container h-auto lg:h-screen"
+      >
+        <!~~ Gradient Div ~~>
+        <div
+          class="flex flex-col justify-center w-full lg:w-1/2 p-8 md:p-12 xl:p-24 flex flex-col gap-8 md:gap-10 bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] text-white"
+        >
+          <div class="flex flex-col gap-3">
+            <h2
+              class="text-3xl md:text-4xl xl:text-5xl leading-9 md:leading-10 xl:leading-[3.5rem] font-medium"
+            >
+              We treat hiring as a strategic lever — not an operational task.
+            </h2>
+
+            <!~~ <div
+              class="opacity-60 text-xl md:text-2xl xl:text-3xl leading-7 md:leading-8 lg:leading-[3.5rem] font-medium"
+            >
+              Meeting Clients Where They Are
+            </div>
+
+            <div class="opacity-60 text-base md:text-lg xl:text-xl md:w-4/5">
+              We’ve built a flexible, insight-led model that adapts to:
+            </div> ~~>
+          </div>
+
+          <!~~ Tier bullets ~~>
+          <div id="tiers" class="hidden lg:flex flex-col gap-3 mt-2 md:mt-5">
+            <div
+              class="tier active"
+              data-tier="1"
+              data-title="Tier 1: Hiring to Shape Strategy"
+              data-desc="Validate strategy through candidate insights; design the first org blueprint."
+              data-img="assets/hiring.png"
+            >
+              Tier 1: Hiring to Shape Strategy
+            </div>
+            <div
+              class="tier"
+              data-tier="2"
+              data-title="Tier 2: Ready to Hire Fast"
+              data-desc="Time-bound leadership mandates linked to milestone gates."
+              data-img="assets/hiring.png"
+            >
+              Tier 2: Ready to Hire Fast
+            </div>
+            <div
+              class="tier"
+              data-tier="3"
+              data-title="Tier 3: Hiring with Pain Points"
+              data-desc="Fix mission/scorecard/culture mis-fit; realign for outcomes."
+              data-img="assets/hiring.png"
+            >
+              Tier 3: Hiring with Pain Points
+            </div>
+          </div>
+        </div>
+
+        <!~~ Info Div ~~>
+        <div
+          class="w-full lg:w-1/2 md:pt-16 md:-pb-0 xl:pt-24 xl:pb-0 px-5 flex flex-col gap-5"
+        >
+          <div class="info-wrapper flex flex-col gap-5">
+            <!~~ Desktop: JS replaces content with an absolute "tape".
+              Mobile: JS renders panels here in normal flow. ~~>
+            <div
+              id="info-title"
+              class="text-2xl md:text-3xl lg:text-5xl leading-7 md:leading-8 lg:leading-[3.5rem] font-medium text-[#1C0738]"
+            >
+              Tier 1: Hiring to <br />
+              Shape Strategy
+            </div>
+
+            <div
+              id="info-desc"
+              class="text-black font-light text-sm md:text-base xl:text-xl"
+            >
+              Validate strategy through hiring; Build leadership structure
+            </div>
+
+            <div class="mt-4 md:mt-5">
+              <img
+                id="info-img"
+                src="assets/hiring.png"
+                alt="strategy"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+-->
+    <!-- STRATEGIC THINKING -->
+<!--    <div
+      class="w-full text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36 bg-white"
+    >
+      <!~~ Blog ~~>
+      <div
+        class="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10 pb-6 md:py-6 lg:py-10"
+      >
+        <!~~ Heading, Text ~~>
+        <div
+          class="flex flex-col items-start gap-5 w-full lg:w-1/2 max-w-3xl strategic-thinking-left"
+        >
+          <h2
+            class="heading-fade-purple font-medium text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem] mb-2 sm:mb-5"
+          >
+            Strategic Thinking. Market Clarity. Founder-Led Insight.
+          </h2>
+
+          <p class="text-md lg:text-lg font-light text-black/70 font-light">
+            At SoraVance, we don’t follow talent trends — we challenge them. Our
+            blog and viewpoint series surface candid market lessons for founders
+            and leaders building across the Japan-India corridor.
+          </p>
+
+          <!~~ Keep the custom triangle bullets; just not nested inside <p> ~~>
+          <ul
+            class="text-md lg:text-lg font-light text-black/70 font-light space-y-3"
+          >
+            <li
+              class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:border-y-[6px] before:border-l-[10px] before:border-y-transparent before:border-l-black"
+            >
+              Real expansion failure stories (and what fixed them)
+            </li>
+            <li
+              class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:border-y-[6px] before:border-l-[10px] before:border-y-transparent before:border-l-black"
+            >
+              Insights on hiring that reflects business intent
+            </li>
+            <li
+              class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:border-y-[6px] before:border-l-[10px] before:border-y-transparent before:border-l-black"
+            >
+              Cross-cultural leadership lessons from the Japan–India corridor
+            </li>
+          </ul>
+
+          <div
+            class="w-full flex flex-col items-center sm:items-start sm:flex-row gap-3 pt-2"
+          >
+            <button
+              class="rounded-full px-10 py-2 w-full sm:w-auto text-[#1C0738] border border-[#1C0738]"
+            >
+              Explore Viewpoints
+            </button>
+            <button
+              class="rounded-full text-sm sm:text-base xl:text-md px-10 py-2 w-fit mx-auto cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+            >
+              Subscribe to Updates
+            </button>
+          </div>
+        </div>
+
+        <!~~ Blog Post ~~>
+        <div
+          class="w-full lg:w-1/2 strategic-thinking-right border border-opacity-90"
+        >
+          <div
+            class="flex flex-col w-full overflow-hidden bg-white text-[#1C0738]"
+          >
+            <!~~ Image ~~>
+            <div class="h-56 w-full overflow-hidden">
+              <img
+                src="assets/strategy-4.png"
+                alt="Featured post"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+
+            <div class="flex flex-col gap-4 sm:gap-5 p-5">
+              <!~~ Tag ~~>
+              <div class="text-sm text-[#B75636] font-bold">FEATURED</div>
+
+              <!~~ Heading ~~>
+              <div class="text-2xl sm:text-3xl xl:text-4xl">
+                Hiring to Validate, Not Just Execute Strategy
+              </div>
+
+              <!~~ Description ~~>
+              <div class="font-light text-black/70 text-base sm:text-lg">
+                A playbook on framing roles around hypotheses, outcomes and
+                measurable validation — not task lists.
+              </div>
+
+              <!~~ Button ~~>
+              <button
+                class="w-fit rounded-full px-6 sm:px-10 py-2 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+    <!-- RECENT POSTS -->
+ <!--   <div class="w-full py-10 md:py-20 px-6 sm:px-8 lg:px-36 bg-[#f0f0f0]">
+      <div class="flex flex-col gap-6 sm:gap-8 lg:gap-10">
+        <h2
+          class="heading-fade-purple font-medium text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem] mb-2 sm:mb-5"
+        >
+          Recent Posts
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!~~ Post 1 ~~>
+          <div
+            class="flex flex-col justify-evenly gap-3 rounded-2xl text-[#1C0738] p-5 rounded-2xl border-gray-300 border hover:bg-white hover:cursor-pointer shadow-sm"
+          >
+            <div class="text-sm text-[#B75636] font-bold">HIRING</div>
+            <div class="text-xl xl:text-2xl flex flex-col gap-1">
+              Hiring to Validate, Not Just Execute Strategy
+            </div>
+            <div class="font-light text-sm md:text-base xl:text-md">
+              Build hiring processes that prove strategic hypotheses — not just
+              fill seats.
+            </div>
+            <button
+              class="mt-2 rounded-full w-full sm:w-1/2 lg:w-fit px-6 sm:px-10 py-1.5 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+            >
+              Read More
+            </button>
+          </div>
+
+          <!~~ Post 2 ~~>
+          <div
+            class="flex flex-col justify-evenly gap-3 rounded-2xl text-[#1C0738] p-5 rounded-2xl border-gray-300 border hover:bg-white hover:cursor-pointer shadow-sm"
+          >
+            <div class="text-sm text-[#B75636] font-bold">LEADERSHIP</div>
+            <div class="text-xl xl:text-2xl flex flex-col gap-1">
+              Why Your Head of India Must Be Your Chief Risk Officer
+            </div>
+            <div class="font-light text-sm md:text-base xl:text-md">
+              Why India leadership must own market and geopolitical risk as a
+              core mandate.
+            </div>
+            <button
+              class="mt-2 rounded-full w-full sm:w-1/2 lg:w-fit px-6 sm:px-10 py-1.5 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+            >
+              Read More
+            </button>
+          </div>
+
+          <!~~ Post 3 ~~>
+          <div
+            class="flex flex-col justify-evenly gap-3 rounded-2xl text-[#1C0738] p-5 rounded-2xl border-gray-300 border hover:bg-white hover:cursor-pointer shadow-sm"
+          >
+            <div class="text-sm text-[#B75636] font-bold">CROSS-CULTURE</div>
+            <div class="text-xl xl:text-2xl flex flex-col gap-1">
+              The Japan–India Talent Translation Problem
+            </div>
+            <div class="font-light text-sm md:text-base xl:text-md">
+              Cross-cultural friction, interpretation gaps, and practical
+              workarounds.
+            </div>
+            <button
+              class="mt-2 rounded-full w-full sm:w-1/2 lg:w-fit px-6 sm:px-10 py-1.5 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+            >
+              Read More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+    <!-- CASE STUDY -->
+<!--    <div
+      class="w-full text-white overflow-hidden bg-white text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36"
+    >
+      <section class="flex flex-col gap-6 sm:gap-8 lg:gap-10 content-container">
+        <!~~ headline ~~>
+        <h2
+          class="flex flex-col gap-5 heading-fade-purple font-semibold text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+        >
+          Case study
+          <div
+            class="text-sm md:text-base lg:text-lg font-light text-black/70 leading-relaxed w-11/12"
+          >
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s
+          </div>
+        </h2>
+
+        <div class="flex gap-5 items-center">
+          <div
+            class="shadow-lg rounded-full bg-white h-10 w-10 text-gray-500 flex items-center justify-center text-2xl"
+          >
+            &#10094;
+          </div>
+          <!~~ Slide - 1 ~~>
+          <div
+            class="relative content-container flex flex-col lg:flex-row w-full items-center lg:items-stretch justify-center gap-8 sm:gap-10 2xl:gap-5 md:py-10"
+          >
+            <!~~ Image ~~>
+            <div
+              class="lg:w-1/2 flex justify-center lg:justify-start items-stretch"
+            >
+              <img
+                src="/assets/strategy-2.png"
+                alt="business-strategists"
+                class="w-full max-w-[660px] h-[240px] sm:h-[320px] md:h-[400px] lg:h-full object-cover object-center"
+              />
+            </div>
+
+            <!~~ Text Content ~~>
+            <div class="flex flex-col gap-5 lg:w-1/2 justify-center h-full">
+              <div class="relative w-fit mx-auto lg:mx-0">
+                <div
+                  class="text-[#1C0738] font-semibold tracking-normal text-4xl leading-9 sm:leading-10"
+                >
+                  From Uncertainty to Alignment:<br class="hidden lg:block" />
+                  A Japan-India Life Sciences Success
+                </div>
+              </div>
+
+              <div
+                class="w-full max-w-3xl mx-auto lg:mx-0 flex flex-col gap-6 sm:gap-8"
+              >
+                <div
+                  class="text-black text-opacity-70 text-md xl:text-lg font-light leading-relaxed"
+                >
+                  Founded by a business advisor with over 21 years of experience
+                  in the Japan–India corridor, SoraVance is a result of
+                  real-world failures, misaligned leadership, and market-entry
+                  challenges we’ve personally helped solve.
+                </div>
+                <div
+                  class="text-black text-opacity-70 text-md xl:text-lg font-light leading-relaxed"
+                >
+                  Our team is trained in Japanese values — discipline,
+                  consistency, and long-term thinking — and we bring that into
+                  every engagement.
+                </div>
+
+                <button
+              class="rounded-full w-full sm:w-1/2 lg:w-fit px-6 sm:px-10 py-1.5 cursor-pointer text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+            >
+              Start a Mandate
+            </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="shadow-lg rounded-full bg-white h-10 w-10 text-gray-500 flex items-center justify-center text-2xl"
+          >
+            &#10095;
+          </div>
+        </div>
+      </section>
+    </div>-->
+
+    <!-- BUSINESS STRATEGISTS -->
+<!--    <div
+      class="w-full text-white overflow-hidden text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36 bg-[#f0f0f0]"
+    >
+      <section
+        class="relative content-container flex flex-col lg:flex-row-reverse w-full items-center lg:items-start justify-center gap-8 sm:gap-10 md:py-10"
+      >
+        <!~~ Image ~~>
+        <div
+          class="lg:w-1/2 flex justify-center lg:justify-end items-center business-strategists-img"
+        >
+          <img
+            src="/assets/strategy-2.png"
+            alt="business-strategists"
+            class="w-full max-w-[660px] h-[240px] sm:h-[320px] md:h-[400px] lg:h-auto object-cover"
+          />
+        </div>
+
+        <!~~ Text Content ~~>
+        <div
+          class="flex flex-col gap-5 lg:w-1/2 business-strategists-text justify-center"
+        >
+          <div class="relative w-fit mx-auto lg:mx-0">
+            <div
+              class="text-[#1C0738] font-semibold tracking-normal text-4xl leading-9 sm:leading-10"
+            >
+              Built by Business Strategists.<br class="hidden lg:block" />
+              Run by Corridor Experts.
+            </div>
+          </div>
+
+          <div
+            class="w-full max-w-3xl mx-auto lg:mx-0 flex flex-col gap-6 sm:gap-8"
+          >
+            <div
+              class="text-black text-opacity-70 text-md lg:text-lg font-light leading-relaxed"
+            >
+              Founded by a business advisor with over 21 years of experience in
+              the Japan–India corridor, SoraVance is a result of real-world
+              failures, misaligned leadership, and market-entry challenges we’ve
+              personally helped solve.
+            </div>
+            <div
+              class="text-black text-opacity-70 text-md lg:text-lg font-light leading-relaxed"
+            >
+              Our team is trained in Japanese values — discipline, consistency,
+              and long-term thinking — and we bring that into every engagement.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>-->
+
+    <!-- FAST FACTS COUNTER -->
+   <!-- <div
+      class="flex flex-col gap-8 w-full bg-white text-[#1C0738] py-1 md:py-2 px-6 sm:px-8 lg:px-36"
+    >
+      <div class="relative w-fit lg:mx-0"></div>
+      <section
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10 md:py-10 items-start"
+      >
+        <!~~ col - 1 ~~>
+        <div
+          class="flex flex-col gap-3 items-center text-center justify-center"
+        >
+          <div
+            class="font-extrabold text-4xl md:text-5xl counter"
+            data-target="100"
+          >
+            100+
+          </div>
+          <div
+            class="text-md xl:text-xl text-black w-full sm:w-3/4 capitalize font-light"
+          >
+            High-impact leadership roles
+          </div>
+        </div>
+
+        <!~~ col - 2 ~~>
+        <div
+          class="flex flex-col gap-3 items-center text-center justify-center"
+        >
+          <div
+            class="font-extrabold text-4xl md:text-5xl counter"
+            data-target="10"
+          >
+            10+
+          </div>
+          <div
+            class="text-md xl:text-xl text-black w-full sm:w-3/4 capitalize font-light"
+          >
+            global corridor maps delivered
+          </div>
+        </div>
+
+        <!~~ col - 3 ~~>
+        <div
+          class="flex flex-col gap-3 items-center text-center justify-center"
+        >
+          <div
+            class="font-extrabold text-4xl md:text-5xl counter"
+            data-target="90"
+          >
+            90%
+          </div>
+          <div
+            class="text-md xl:text-xl text-black w-full sm:w-3/4 capitalize font-light"
+          >
+            first-year retention rate
+          </div>
+        </div>
+
+        <!~~ col - 4 ~~>
+        <div
+          class="flex flex-col gap-3 items-center text-center justify-center"
+        >
+          <div
+            class="font-extrabold text-4xl md:text-5xl counter"
+            data-target="25"
+          >
+            25+
+          </div>
+          <div
+            class="text-md xl:text-xl text-black w-full capitalize font-light"
+          >
+            market-entry strategies executed
+          </div>
+        </div>
+
+        <!~~ col - 5 ~~>
+        <div
+          class="flex flex-col gap-3 items-center text-center justify-center"
+        >
+          <div
+            class="font-extrabold text-4xl md:text-5xl counter"
+            data-target="14"
+          >
+            14 yrs
+          </div>
+          <div
+            class="text-md xl:text-xl text-black w-full capitalize font-light"
+          >
+            of Japan–India corridor experience
+          </div>
+        </div>
+      </section>
+    </div>-->
+
+    <!-- READY TO VALIDATE YOUR NEXT MOVE? -->
+    <div
+      class="w-full text-[#1C0738] py-10 md:py-20 px-6 sm:px-8 lg:px-36 bg-[#f0f0f0]"
+    >
+      <section
+        class="content-container flex flex-col items-center justify-center text-center gap-6 sm:gap-8"
+      >
+        <!-- headline -->
+        <h2
+          class="heading-fade-purple font-medium text-3xl sm:text-4xl lg:text-5xl leading-9 sm:leading-10 lg:leading-[3.5rem]"
+        >
+          What if leadership <br/> <i>became your advantage — not your risk?</i>
+        </h2>
+
+        <div class="text-black text-lg sm:text-xl xl:text-2xl font-normal">
+          When the stakes are real, we're the right partner.
+        </div>
+        <div class="text-black/70 text-sm sm:text-base xl:text-lg font-light">
+          Whether it's your first country hire, a market you're entering, or a leadership gap that's
+          costing you momentum — <strong class="font-semibold text-black">we've been here before.</strong> SoraVance partners with founders,
+          boards, and CXOs at the moments that define growth outcomes.
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-5 mt-2">
+          <button
+            class="rounded-full px-8 py-2 w-full sm:w-auto font-light text-black border border-black transition-transform duration-300 hover:-translate-y-1"
+          >
+            Talk to a Partner
+          </button>
+
+          <button
+            class="rounded-full px-8 py-2 w-full sm:w-auto font-medium text-white bg-gradient-to-br from-[#1C0738] via-[#371449] via-[#5C003A] to-[#B75636] transition-transform duration-300 hover:-translate-y-1"
+          >
+            Start a Strategy Sprint
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- FOOTER -->
+    <section
+      id="footer"
+      class="relative overflow-hidden min-h-[60vh] bg-[url('assets/bg-gradient.png')] bg-cover bg-center lg:bg-fixed text-white pt-8 md:pt-10 px-6 sm:px-8 lg:px-20"
+    >
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 flex items-center justify-center z-0"
+      >
+        <img
+          id="footerOrb"
+          src="assets/logo-icon.png"
+          alt=""
+          class="transform-gpu will-change-transform select-none opacity-0 w-[70vw] max-w-[900px] h-auto soft-vignette"
+          style="filter: blur(0.3px)"
+        />
+      </div>
+
+      <!-- CONTENT above the icon -->
+      <div class="relative z-5">
+        <div class="md:py-10 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-20">
+          <!-- Col 1 : Logo, text, etc -->
+          <div class="flex flex-col gap-6 md:gap-8 col-span-2 md:col-span-1">
+            <!-- Logo -->
+            <div>
+              <img
+                src="assets/logo.png"
+                alt="logo"
+                class="w-40 sm:w-56 md:w-64 h-auto"
+              />
+            </div>
+
+            <div
+              class="font-light text-white/90 text-sm sm:text-base md:text-md max-w-xl"
+            >
+              Soravance Is a Japan-Rooted Advisory Firm Aligning Business
+              Strategy and Leadership. We Help Organizations Validate Plans,
+              de-Risk Leadership Decisions, and Accelerate Expansion Through
+              Insight-Led Hiring and Strategy Advisory — Building Toward an
+              “intelligence First” Future.
+            </div>
+          </div>
+
+          <!-- Col 2 : Navigation -->
+          <div class="flex flex-col gap-3 md:gap-4 sm:items-start">
+            <div class="font-bold text-lg">Navigation</div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              About
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Services
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Methodology
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Insights
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Case Studies
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Contact
+            </div>
+          </div>
+
+          <!-- Col 3 : Corridors & Sectors -->
+          <div class="flex flex-col gap-3 md:gap-4 sm:items-start">
+            <div class="font-bold text-lg">Corridors & Sectors</div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Japan ⇄ India Corridor
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Global Market Advisory
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Technology
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Life Sciences
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Consulting & Advisory
+            </div>
+          </div>
+
+          <!-- Col 4 : Connect -->
+          <div class="flex flex-col gap-3 md:gap-4 sm:items-start">
+            <div class="font-bold text-lg">Connect</div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              LinkedIn
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Email : info@soravance.com
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Address : SoraVance LLP, India
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Privacy Policy
+            </div>
+            <div class="text-white/90 text-sm sm:text-base font-light">
+              Terms of Use
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHTS RESERVED -->
+    <div
+      class="bg-white w-full text-black flex justify-center text-opacity-70 text-sm px-6 sm:px-8 lg:px-20 py-3"
+    >
+      <div class="text-center sm:text-left">
+        © 2025 SoraVance LLP | Rooted in Japan. Built for the World. | All
+        rights reserved.
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+
+    <!-- GSAP core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="js/script.js"></script>
+
+    <!-- SECTION ANIMATIONS -->
+    <style>
+      /* ── Insights columns: start hidden ── */
+      .ins-col-top { opacity: 0; transform: translateY(-60px); }
+      .ins-col-bot { opacity: 0; transform: translateY(60px); }
+
+      /* ── Carousel slide content ── */
+      @keyframes capSlideIn {
+        from { opacity: 0; transform: translateX(-32px); }
+        to   { opacity: 1; transform: translateX(0); }
+      }
+      .cap-slide-content { opacity: 0; }
+      .cap-slide-content.cap-anim-play {
+        animation: capSlideIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
+
+      /* ── Client Impact cards + CTA tile: start hidden ── */
+      .ci-card, .ci-tile-cta { opacity: 0; transform: translateY(48px); }
+    </style>
+
+    <script>
+    (function () {
+      if (typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* ── Insights section: cols 1&3 from top, cols 2&4 from bottom ── */
+      gsap.to('.ins-col-top', {
+        opacity: 1, y: 0,
+        duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: '#insights-section', start: 'top 72%', once: true }
+      });
+      gsap.to('.ins-col-bot', {
+        opacity: 1, y: 0,
+        duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: '#insights-section', start: 'top 72%', once: true }
+      });
+
+      /* ── Carousel intro band ── */
+      gsap.from('#capabilities-section .bg-\\[\\#1C0738\\] > div > *', {
+        opacity: 0, y: 28,
+        duration: 0.75, stagger: 0.12, ease: 'power2.out',
+        scrollTrigger: { trigger: '#capabilities-section', start: 'top 78%', once: true }
+      });
+
+      /* ── Client Impact cards + CTA tile: staggered fade-up ── */
+      gsap.to('.ci-card, .ci-tile-cta', {
+        opacity: 1, y: 0,
+        duration: 0.7, stagger: 0.13, ease: 'power2.out',
+        scrollTrigger: { trigger: '#client-impact-section', start: 'top 80%', once: true }
+      });
+
+      /* ── Client Impact section header ── */
+      gsap.from('#client-impact-section > div:first-child > *', {
+        opacity: 0, y: 24,
+        duration: 0.7, stagger: 0.1, ease: 'power2.out',
+        scrollTrigger: { trigger: '#client-impact-section', start: 'top 78%', once: true }
+      });
+    }());
+    </script>
+
+    <!-- GIF frame decoder for mobile (fixes Safari throttle + Chrome play overlay) -->
+    <script>
+    (function () {
+      if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) return;
+
+      var img = document.getElementById("hero-gif");
+      var canvas = document.getElementById("hero-gif-canvas");
+      if (!img || !canvas) return;
+
+      var s = document.createElement("script");
+      s.src = "https://unpkg.com/gifuct-js@2.1.2/dist/gifuct-js.min.js";
+      s.onload = function () {
+        fetch(img.src)
+          .then(function (r) { return r.arrayBuffer(); })
+          .then(function (buff) {
+            var gif = gifuct.parseGIF(buff);
+            var frames = gifuct.decompressFrames(gif, true);
+            if (!frames.length) return;
+
+            var w = gif.lsd.width, h = gif.lsd.height;
+            canvas.width = w;
+            canvas.height = h;
+            var ctx = canvas.getContext("2d");
+
+            var comp = document.createElement("canvas");
+            comp.width = w;
+            comp.height = h;
+            var compCtx = comp.getContext("2d");
+
+            img.classList.add("hidden");
+            canvas.classList.remove("hidden");
+
+            var idx = 0, last = 0;
+            (function tick(ts) {
+              if (!last) last = ts;
+              var f = frames[idx];
+              var delay = (f.delay || 10) * 10;
+              if (delay < 20) delay = 100;
+
+              if (ts - last >= delay) {
+                if (f.disposalType === 2) {
+                  compCtx.clearRect(f.dims.left, f.dims.top, f.dims.width, f.dims.height);
+                }
+                var imgData = new ImageData(new Uint8ClampedArray(f.patch), f.dims.width, f.dims.height);
+                compCtx.putImageData(imgData, f.dims.left, f.dims.top);
+                ctx.clearRect(0, 0, w, h);
+                ctx.drawImage(comp, 0, 0);
+                idx = (idx + 1) % frames.length;
+                last = ts;
+              }
+              requestAnimationFrame(tick);
+            })(0);
+          });
+      };
+      document.head.appendChild(s);
+    })();
+    </script>
+  </body>
+</html>
