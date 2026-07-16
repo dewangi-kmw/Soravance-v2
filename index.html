@@ -27,6 +27,12 @@
     .sv-flip-card:hover .sv-flip-card-inner { transform: rotateY(180deg); }
     .sv-flip-front, .sv-flip-back { position: absolute; inset: 0; overflow: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 20px; box-sizing: border-box; }
     .sv-flip-back { transform: rotateY(180deg); background: #f5f4f2; border: 1px solid rgba(28,7,56,0.08); display: flex; flex-direction: column; justify-content: space-between; padding: clamp(18px,2vw,24px); }
+    .sv-hamburger-line { display: block; width: 22px; height: 2px; background: #1C0738; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    #sv-hamburger.open .sv-hamburger-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    #sv-hamburger.open .sv-hamburger-line:nth-child(2) { opacity: 0; }
+    #sv-hamburger.open .sv-hamburger-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    #sv-mobile-menu { position: fixed; inset: 0; z-index: 98; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; padding: 32px; box-sizing: border-box; opacity: 0; visibility: hidden; transform: translateY(-18px); transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1), visibility 0s linear 0.4s; }
+    #sv-mobile-menu.open { opacity: 1; visibility: visible; transform: translateY(0); transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1), visibility 0s linear 0s; }
   </style>
 </helmet>
 
@@ -34,8 +40,8 @@
 <div id="sv-progress" style="position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,#1C0738,#5C003A,#B75636); z-index:120; pointer-events:none;"></div>
 
 <!-- HEADER -->
-<header id="sv-header" data-screen-label="Header" style="position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px clamp(20px,3.5vw,44px); background:transparent; transition:background 0.4s, box-shadow 0.4s, padding 0.4s; box-sizing:border-box;">
-  <img id="sv-logo" src="https://soravance-html.vercel.app/assets/logo-gradient.png" alt="SoraVance" style="height:52px; width:auto; transition:height 0.4s;" />
+<header id="sv-header" data-screen-label="Header" style="position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px clamp(16px,3.5vw,44px); background:transparent; transition:background 0.4s, box-shadow 0.4s, padding 0.4s; box-sizing:border-box;">
+  <img id="sv-logo" src="https://soravance-html.vercel.app/assets/logo-gradient.png" alt="SoraVance" style="height:clamp(34px,9vw,52px); width:auto; transition:height 0.4s; flex-shrink:0;" />
   <div style="display:flex; align-items:center; gap:clamp(16px,2vw,32px);">
     <nav id="sv-nav" style="display:flex; align-items:center; gap:clamp(14px,1.8vw,30px); font-size:14.5px; font-weight:500;">
       <a href="#" style="color:#1C0738;">About Us</a>
@@ -45,16 +51,33 @@
       <a href="#" style="color:#1C0738;">Team</a>
       <a href="#" style="color:#1C0738;">Contact</a>
     </nav>
-    <button style="flex-shrink:0; border:none; border-radius:999px; padding:10px 22px; font-weight:300; font-size:13.5px; cursor:pointer; color:#ffffff; background:linear-gradient(135deg,#1C0738 0%,#371449 35%,#5C003A 65%,#B75636 100%); transition:transform 0.3s;" style-hover="transform:translateY(-3px);">Start a Strategy Sprint</button>
+    <button id="sv-cta-btn" style="flex-shrink:0; white-space:nowrap; border:none; border-radius:999px; padding:10px 22px; font-weight:300; font-size:13.5px; cursor:pointer; color:#ffffff; background:linear-gradient(135deg,#1C0738 0%,#371449 35%,#5C003A 65%,#B75636 100%); transition:transform 0.3s;" style-hover="transform:translateY(-3px);">Start a Strategy Sprint</button>
+    <button id="sv-hamburger" aria-label="Toggle menu" style="display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:38px; height:38px; border:none; background:transparent; cursor:pointer; padding:0; flex-shrink:0;">
+      <span class="sv-hamburger-line"></span>
+      <span class="sv-hamburger-line"></span>
+      <span class="sv-hamburger-line"></span>
+    </button>
   </div>
 </header>
+
+<!-- Mobile menu -->
+<div id="sv-mobile-menu">
+  <button id="sv-mobile-menu-close" aria-label="Close menu" style="position:absolute; top:18px; right:20px; width:40px; height:40px; border:none; background:transparent; cursor:pointer; color:#1C0738; font-size:30px; line-height:1; font-weight:300;">&times;</button>
+  <a href="#" style="color:#1C0738; font-size:22px; font-weight:500;">About Us</a>
+  <a href="#" style="color:#1C0738; font-size:22px; font-weight:500; display:inline-flex; align-items:center; gap:8px;">Our Services <span style="font-size:11px; opacity:0.6;">&#9662;</span></a>
+  <a href="#" style="color:#1C0738; font-size:22px; font-weight:500; display:inline-flex; align-items:center; gap:8px;">Sectors &amp; Corridors <span style="font-size:11px; opacity:0.6;">&#9662;</span></a>
+  <a href="#" style="color:#1C0738; font-size:22px; font-weight:500;">Insights</a>
+  <a href="#" style="color:#1C0738; font-size:22px; font-weight:500;">Team</a>
+  <a href="#" style="color:#1C0738; font-size:22px; font-weight:500;">Contact</a>
+  <button style="margin-top:10px; border:none; border-radius:999px; padding:14px 32px; font-weight:400; font-size:15px; cursor:pointer; color:#ffffff; background:linear-gradient(135deg,#1C0738 0%,#371449 35%,#5C003A 65%,#B75636 100%);">Start a Strategy Sprint</button>
+</div>
 
 <!-- HERO (unchanged) -->
 <div data-screen-label="Hero" style="position:relative; min-height:100vh; overflow:hidden; display:flex; align-items:center;">
   <video src="https://soravance-html.vercel.app/assets/home-bg-white.mp4" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></video>
   <div style="position:absolute; inset:0; background:rgba(255,255,255,0.12);"></div>
   <section style="position:relative; z-index:2; display:flex; flex-wrap:wrap; align-items:center; gap:36px; width:100%; padding:130px clamp(24px,5.5vw,90px) 70px; box-sizing:border-box; color:#1C0738;">
-    <div style="flex:1 1 480px; min-width:320px; display:flex; flex-direction:column; gap:22px;">
+    <div style="flex:1 1 480px; min-width:min(320px,100%); display:flex; flex-direction:column; gap:22px;">
       <h1 style="margin:0; font-weight:600; font-size:clamp(40px,4.6vw,68px); line-height:1.08; letter-spacing:-0.015em; color:#1C0738;">Future of Strategy<br />Through People</h1>
       <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(19px,1.9vw,28px); line-height:1.4; color:#14052b;">Where leadership insight, talent intelligence, and business goals converge.</div>
       <p style="margin:0; max-width:54ch; font-weight:300; font-size:clamp(14px,1.15vw,17px); line-height:1.75; color:rgba(28,7,56,0.72);">Soravance is your trusted strategy partner for high-stakes market entry and business expansion — through market insight, milestone-aligned hiring, and culturally intelligent execution.</p>
@@ -63,7 +86,7 @@
         <button style="border-radius:999px; border:none; color:#ffffff; padding:12px 34px; font-weight:300; font-size:15px; cursor:pointer; background:linear-gradient(135deg,#1C0738 0%,#371449 35%,#5C003A 65%,#B75636 100%); transition:transform 0.25s;" style-hover="transform:translateY(-3px);">Talk to a Strategist</button>
       </div>
     </div>
-    <div style="flex:1 1 380px; min-width:300px; display:flex; justify-content:center;">
+    <div style="flex:1 1 380px; min-width:min(300px,100%); display:flex; justify-content:center;">
       <img src="https://soravance-html.vercel.app/assets/hero-animation.gif" alt="SoraVance rings" style="width:100%; max-width:620px; height:auto;" />
     </div>
   </section>
@@ -155,12 +178,12 @@
   <div style="display:flex; flex-wrap:wrap; gap:clamp(36px,5vw,80px); margin-top:clamp(40px,4.5vw,68px); align-items:flex-start;">
 
     <!-- Editorial index -->
-    <div data-rv style="flex:1.45 1 520px; min-width:340px; border-bottom:1px solid rgba(28,7,56,0.12);">
+    <div data-rv style="flex:1.45 1 520px; min-width:min(340px,100%); border-bottom:1px solid rgba(28,7,56,0.12);">
       <sc-for list="{{ whyRows }}" as="w" hint-placeholder-count="5">
         <div onClick="{{ w.onClick }}" onMouseEnter="{{ w.onEnter }}" style="{{ w.rowStyle }}">
-          <div style="display:flex; gap:clamp(16px,2.2vw,34px); align-items:flex-start; padding:clamp(20px,2.4vw,30px) 6px;">
+          <div style="display:flex; gap:clamp(12px,2.2vw,34px); align-items:flex-start; padding:clamp(20px,2.4vw,30px) 6px;">
             <div style="{{ w.numStyle }}">{{ w.n }}</div>
-            <div style="flex:1; display:flex; flex-direction:column; gap:7px;">
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:7px;">
               <div style="font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; color:rgba(28,7,56,0.42);">{{ w.tag }}</div>
               <div style="{{ w.qStyle }}">{{ w.q }}</div>
               <div style="{{ w.expandStyle }}">
@@ -175,7 +198,7 @@
     </div>
 
     <!-- Sticky visual -->
-    <div style="flex:1 1 340px; min-width:300px; max-width:480px; position:sticky; top:110px;" data-rv="140">
+    <div style="flex:1 1 340px; min-width:min(300px,100%); max-width:480px; position:sticky; top:110px;" data-rv="140">
       <div style="position:relative; width:100%; aspect-ratio:4/5; max-height:600px; border-radius:20px; overflow:hidden; background:#1C0738;">
         <sc-for list="{{ whyImgs }}" as="im" hint-placeholder-count="1">
           <img src="{{ im.src }}" alt="" style="{{ im.style }}" />
@@ -471,7 +494,7 @@ class Component extends DCLogic {
         h.style.paddingTop = on ? '9px' : '14px';
         h.style.paddingBottom = on ? '9px' : '14px';
         var logo = document.getElementById('sv-logo');
-        if (logo) logo.style.height = on ? '40px' : '52px';
+        if (logo) logo.style.height = on ? 'clamp(30px,7vw,40px)' : 'clamp(34px,9vw,52px)';
       }
       if (p) {
         var max = document.documentElement.scrollHeight - window.innerHeight;
@@ -494,12 +517,39 @@ class Component extends DCLogic {
     window.addEventListener('scroll', this._onScroll, { passive: true });
     this._onScroll();
 
+    this._closeMobileMenu = function () {
+      var hamburger = document.getElementById('sv-hamburger');
+      var menu = document.getElementById('sv-mobile-menu');
+      if (hamburger) hamburger.classList.remove('open');
+      if (menu) menu.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
     this._onResize = function () {
       var nav = document.getElementById('sv-nav');
-      if (nav) nav.style.display = window.innerWidth < 1080 ? 'none' : 'flex';
+      var cta = document.getElementById('sv-cta-btn');
+      var hamburger = document.getElementById('sv-hamburger');
+      var mobile = window.innerWidth < 1080;
+      if (nav) nav.style.display = mobile ? 'none' : 'flex';
+      if (cta) cta.style.display = mobile ? 'none' : 'inline-flex';
+      if (hamburger) hamburger.style.display = mobile ? 'flex' : 'none';
+      if (!mobile) self._closeMobileMenu();
     };
     window.addEventListener('resize', this._onResize);
     this._onResize();
+
+    var hamburgerBtn = document.getElementById('sv-hamburger');
+    var mobileMenu = document.getElementById('sv-mobile-menu');
+    if (hamburgerBtn && mobileMenu) {
+      hamburgerBtn.addEventListener('click', function () {
+        var open = hamburgerBtn.classList.toggle('open');
+        mobileMenu.classList.toggle('open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      Array.prototype.slice.call(mobileMenu.querySelectorAll('a, button')).forEach(function (el) {
+        el.addEventListener('click', function () { self._closeMobileMenu(); });
+      });
+    }
 
     var els = Array.prototype.slice.call(document.querySelectorAll('[data-rv]'));
     this._io = new IntersectionObserver(function (ents) {
@@ -587,7 +637,7 @@ class Component extends DCLogic {
         rowStyle: { borderTop: '1px solid rgba(28,7,56,0.12)', cursor: 'pointer', background: on ? 'linear-gradient(90deg, rgba(28,7,56,0.035), rgba(28,7,56,0) 70%)' : 'transparent', transition: 'background 0.5s' },
         numStyle: { fontSize: '13px', fontWeight: 600, letterSpacing: '0.08em', minWidth: '36px', paddingTop: '24px', transition: 'color 0.4s', color: on ? '#B75636' : 'rgba(28,7,56,0.35)' },
         qStyle: { fontSize: 'clamp(19px,1.85vw,28px)', lineHeight: 1.32, fontWeight: 400, letterSpacing: '-0.01em', transition: 'color 0.4s, transform 0.5s cubic-bezier(0.22,1,0.36,1)', color: on ? '#1C0738' : 'rgba(28,7,56,0.52)', transform: on ? 'translateX(6px)' : 'translateX(0px)' },
-        expandStyle: { overflow: 'hidden', maxHeight: on ? '280px' : '0px', opacity: on ? 1 : 0, transition: 'max-height 0.65s cubic-bezier(0.4,0,0.2,1), opacity 0.5s 0.05s' },
+        expandStyle: { overflow: 'hidden', maxHeight: on ? '640px' : '0px', opacity: on ? 1 : 0, transition: 'max-height 0.65s cubic-bezier(0.4,0,0.2,1), opacity 0.5s 0.05s' },
         arrowStyle: { width: '44px', height: '44px', borderRadius: '50%', display: 'grid', placeItems: 'center', flexShrink: 0, marginTop: '14px', fontSize: '16px', transition: 'all 0.45s cubic-bezier(0.22,1,0.36,1)', border: on ? '1px solid transparent' : '1px solid rgba(28,7,56,0.22)', background: on ? 'linear-gradient(135deg,#1C0738,#5C003A 60%,#B75636)' : 'transparent', color: on ? '#ffffff' : 'rgba(28,7,56,0.5)', transform: on ? 'rotate(-45deg)' : 'rotate(0deg)' }
       };
     });
